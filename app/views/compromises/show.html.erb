@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fecha inicial:</strong>
+  <%= @compromise.fecha_inicial %>
+</p>
+
+<p>
+  <strong>Correo:</strong>
+  <%= @compromise.correo %>
+</p>
+
+<p>
+  <strong>Fecha limite:</strong>
+  <%= @compromise.fecha_limite %>
+</p>
+
+<p>
+  <strong>Compromisos:</strong>
+  <%= @compromise.compromisos %>
+</p>
+
+<p>
+  <strong>Stakehlder:</strong>
+  <%= @compromise.stakeholder_id %>
+</p>
+
+<%= link_to 'Edit', edit_compromise_path(@compromise) %> |
+<%= link_to 'Back', compromises_path %>

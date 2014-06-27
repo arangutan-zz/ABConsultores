@@ -1,0 +1,25 @@
+<%= form_for(@relevancestakeholder) do |f| %>
+  <% if @relevancestakeholder.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@relevancestakeholder.errors.count, "error") %> prohibited this relevancestakeholder from being saved:</h2>
+
+      <ul>
+      <% @relevancestakeholder.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :stakeholder_id %><br>
+    <%= f.text_field :stakeholder_id %>
+  </div>
+  <div class="field">
+    <%= f.label :relevance_id %><br>
+    <%= f.text_field :relevance_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

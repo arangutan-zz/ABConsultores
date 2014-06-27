@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "ABconsultores" %></title>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+  	<p class="notice"><%= notice %></p>
+	<p class="alert"><%= alert %></p>
+    
+    <div class="row">
+    	<% if user_signed_in? %>
+    	<%= render 'layouts/menu' %>
+    	<% end %>
+    	<%= yield %>
+    </div>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tema:</strong>
+  <%= @metting.tema %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @metting.fecha %>
+</p>
+
+<p>
+  <strong>Asistentes:</strong>
+  <%= @metting.asistentes %>
+</p>
+
+<p>
+  <strong>Resumen:</strong>
+  <%= @metting.resumen %>
+</p>
+
+<p>
+  <strong>Stakeholder:</strong>
+  <%= @metting.stakeholder_id %>
+</p>
+
+<%= link_to 'Edit', edit_metting_path(@metting) %> |
+<%= link_to 'Back', mettings_path %>

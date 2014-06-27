@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Stakeholder:</strong>
+  <%= @relevancestakeholder.stakeholder_id %>
+</p>
+
+<p>
+  <strong>Relevance:</strong>
+  <%= @relevancestakeholder.relevance_id %>
+</p>
+
+<%= link_to 'Edit', edit_relevancestakeholder_path(@relevancestakeholder) %> |
+<%= link_to 'Back', relevancestakeholders_path %>

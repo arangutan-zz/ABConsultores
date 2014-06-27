@@ -1,0 +1,31 @@
+<h1>Listing interests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tema</th>
+      <th>Informacion</th>
+      <th>Imagen</th>
+      <th>Stakeholder</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @interests.each do |interest| %>
+      <tr>
+        <td><%= interest.tema %></td>
+        <td><%= interest.informacion %></td>
+        <td><%= image_tag interest.imagen_url, class: 'imagen' %></td>
+        <td><%= interest.stakeholder.nombre %></td>
+        <td><%= link_to 'Show', interest %></td>
+        <td><%= link_to 'Edit', edit_interest_path(interest) %></td>
+        <td><%= link_to 'Destroy', interest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Interest', new_interest_path %>

@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre comercial:</strong>
+  <%= @empresa.nombre_comercial %>
+</p>
+
+<p>
+  <strong>Razon social:</strong>
+  <%= @empresa.razon_social %>
+</p>
+
+<p>
+  <strong>Nit:</strong>
+  <%= @empresa.nit %>
+</p>
+
+<p>
+  <strong>Representante legal:</strong>
+  <%= @empresa.representante_legal %>
+</p>
+
+<p>
+  <strong>Nombre contacto:</strong>
+  <%= @empresa.nombre_contacto %>
+</p>
+
+<p>
+  <strong>Email contacto:</strong>
+  <%= @empresa.email_contacto %>
+</p>
+
+<p>
+  <strong>Telefono contacto:</strong>
+  <%= @empresa.telefono_contacto %>
+</p>
+
+<p>
+  <strong>Direccion contacto:</strong>
+  <%= @empresa.direccion_contacto %>
+</p>
+
+<p>
+  <strong>Ciudad:</strong>
+  <%= @empresa.ciudad %>
+</p>
+
+<p>
+  <strong>Pais:</strong>
+  <%= @empresa.pais %>
+</p>
+
+<p>
+  <strong>Pagina web:</strong>
+  <%= @empresa.pagina_web %>
+</p>
+
+<p>
+  <strong>Imagen:</strong>
+  <%= @empresa.imagen %>
+</p>
+
+<%= link_to 'Edit', edit_empresa_path(@empresa) %> |
+<%= link_to 'Back', empresas_path %>

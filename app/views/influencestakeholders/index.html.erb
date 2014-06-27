@@ -1,0 +1,27 @@
+<h1>Listing influencestakeholders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Stakeholder</th>
+      <th>Influence</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @influencestakeholders.each do |influencestakeholder| %>
+      <tr>
+        <td><%= influencestakeholder.stakeholder_id %></td>
+        <td><%= influencestakeholder.influence_id %></td>
+        <td><%= link_to 'Show', influencestakeholder %></td>
+        <td><%= link_to 'Edit', edit_influencestakeholder_path(influencestakeholder) %></td>
+        <td><%= link_to 'Destroy', influencestakeholder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Influencestakeholder', new_influencestakeholder_path %>

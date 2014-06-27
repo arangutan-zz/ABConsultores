@@ -1,0 +1,41 @@
+%h1
+	Lista de usuarios
+
+%table
+	%thead
+		%tr
+			%th
+				Usuario
+			%th
+				Nombre
+			%th
+				Apellido
+			%th
+				Cargo
+			%th
+				Rol
+			%th
+				Editar
+			%th
+				Borrar
+	%tbody
+		- @usuarios.each do |user|
+			- if user != current_user
+				%tr
+					%td
+						= user.username
+					%td
+						= user.nombre
+					%td
+						= user.apellido
+					%td
+						= user.cargo
+					%td
+						= user.rol
+					%td
+						= link_to 'Editar', users_edit_path(user)
+					%td
+						= link_to 'Borrar', 'users/'+user.id.to_s, method: :delete, data: { confirm: 'Are you sure?' }
+
+
+= link_to 'Agregar nuevo', users_new_path

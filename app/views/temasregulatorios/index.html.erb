@@ -1,0 +1,31 @@
+<h1>Listing temasregulatorios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Resumen</th>
+      <th>Imagen</th>
+      <th>Stakeholder</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @temasregulatorios.each do |temasregulatorio| %>
+      <tr>
+        <td><%= temasregulatorio.titulo %></td>
+        <td><%= temasregulatorio.resumen %></td>
+        <td><%= image_tag temasregulatorio.imagen_url, class: 'imagen' %></td>
+        <td><%= temasregulatorio.stakeholder.nombre %></td>
+        <td><%= link_to 'Show', temasregulatorio %></td>
+        <td><%= link_to 'Edit', edit_temasregulatorio_path(temasregulatorio) %></td>
+        <td><%= link_to 'Destroy', temasregulatorio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Temasregulatorio', new_temasregulatorio_path %>

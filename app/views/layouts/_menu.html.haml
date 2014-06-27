@@ -1,0 +1,25 @@
+%ul#selector
+	
+	-if current_user.isSuperAdmin? && !current_user.isAdmin?
+		%li
+			= link_to 'administracion empresas', empresas_path
+		%li
+			= link_to 'administracion tipos de entidad', entities_path
+	-if current_user.isAdmin? or current_user.isSuperAdmin?
+		%li
+			= link_to 'administracion usuarios', 'users/index'
+	%li
+		= link_to 'administracion stakeholders', stakeholders_path
+	%li
+		= link_to 'administracion reuniones', mettings_path
+	%li
+		= link_to 'administracion compromisos', compromises_path
+	%li
+		= link_to 'administracion temas de interes', interests_path
+	%li
+		= link_to 'administracion temas regulatorios', temasregulatorios_path
+	%li
+		= link_to 'administracion Cambiar Contraseña', '#'
+	%li
+		= link_to 'administracion salir', destroy_user_session_path, method: :delete 
+

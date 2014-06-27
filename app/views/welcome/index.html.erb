@@ -1,0 +1,15 @@
+<% if user_signed_in? %>
+	<p>Estas logueado</p>
+	<%= current_user.email %>
+<% else %>
+	<%= link_to 'logueate', new_user_session_path %>
+<% end %>
+
+
+<% if current_user && current_user.isAdmin? && !current_user.isSuperAdmin? %>
+	<p>es administrador</p>
+<% end %>
+
+<% if current_user && current_user.isSuperAdmin? && !current_user.isAdmin? %>
+	<p>es superadministrador</p>
+<% end %>
