@@ -1,14 +1,13 @@
-class EmpresasPdf < Prawn::Document
+class EmpresaPdf < Prawn::Document
+
 	
 
-	def initialize(empresas, current_user)
+	def initialize(empresa, current_user)
 	   	super()
 	   	@current_user=current_user
-	   	empresas.each do |empresa|
-	   		#if @current_user.empresa != empresa
-	   			imprimir(empresa)
-	   		#end
-	   	end
+   		#if @current_user.empresa != empresa
+   			imprimir(empresa)
+   		#end
 	end
 
 	def imprimir(empresa)

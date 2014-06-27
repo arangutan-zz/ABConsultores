@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   delete 'usuarios/:id', to: 'usuarios#destroy' , as: 'usuarios/destroy'
 
+  get 'usuarios/:id', to: 'usuarios#show', as: 'usuarios/show'
+
   # get 'users/new'
 
   # post 'users' , to:  'users#create' , as: 'users'

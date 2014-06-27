@@ -10,6 +10,15 @@ class StakeholdersController < ApplicationController
   # GET /stakeholders/1
   # GET /stakeholders/1.json
   def show
+    espond_to do |format|
+      format.html
+      format.pdf  do
+        pdf = StakeholderPdf.new(@stakeholder, current_user)
+        send_data pdf.render, filename: "prueba.pdf",
+                              type: "application/pdf",
+                              disposition: "inline"
+      end
+    end
   end
 
   # GET /stakeholders/new

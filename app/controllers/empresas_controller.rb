@@ -20,6 +20,15 @@ class EmpresasController < ApplicationController
   # GET /empresas/1
   # GET /empresas/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.pdf  do
+        pdf = EmpresaPdf.new(@empresa, current_user)
+        send_data pdf.render, filename: "prueba.pdf",
+                              type: "application/pdf",
+                              disposition: "inline"
+      end
+    end
   end
 
   # GET /empresas/new

@@ -4,9 +4,6 @@ class MeetingsPdf < Prawn::Document
 	   	meetings.each do |meeting|
 	   		imprimir(meeting)
 	   	end
-
-
-	   	
 	end
 
 	def imprimir(meeting)
