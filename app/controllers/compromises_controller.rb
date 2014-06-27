@@ -6,6 +6,7 @@ class CompromisesController < ApplicationController
   def index
     @compromises = Compromise.all
 
+
     respond_to do |format|
       format.html
       format.pdf  do
@@ -15,11 +16,13 @@ class CompromisesController < ApplicationController
                               disposition: "inline"
       end
     end
+
   end
 
   # GET /compromises/1
   # GET /compromises/1.json
   def show
+
     respond_to do |format|
       format.html
       format.pdf  do
@@ -29,6 +32,7 @@ class CompromisesController < ApplicationController
                               disposition: "inline"
       end
     end
+
   end
 
   # GET /compromises/new

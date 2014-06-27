@@ -5,6 +5,7 @@ class InterestsController < ApplicationController
   # GET /interests.json
   def index
     @interests = Interest.all
+
     respond_to do |format|
       format.html
       format.pdf  do
@@ -14,6 +15,7 @@ class InterestsController < ApplicationController
                               disposition: "inline"
       end
     end
+
   end
 
   # GET /interests/1
