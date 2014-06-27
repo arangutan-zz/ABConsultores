@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha_inicial: 2014-06-25
+  correo: MyString
+  fecha_limite: 2014-06-25
+  compromisos: MyString
+  stakehlder_id: MyString
+
+two:
+  fecha_inicial: 2014-06-25
+  correo: MyString
+  fecha_limite: 2014-06-25
+  compromisos: MyString
+  stakehlder_id: MyString

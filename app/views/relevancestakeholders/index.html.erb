@@ -1,0 +1,27 @@
+<h1>Listing relevancestakeholders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Stakeholder</th>
+      <th>Relevance</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @relevancestakeholders.each do |relevancestakeholder| %>
+      <tr>
+        <td><%= relevancestakeholder.stakeholder_id %></td>
+        <td><%= relevancestakeholder.relevance_id %></td>
+        <td><%= link_to 'Show', relevancestakeholder %></td>
+        <td><%= link_to 'Edit', edit_relevancestakeholder_path(relevancestakeholder) %></td>
+        <td><%= link_to 'Destroy', relevancestakeholder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Relevancestakeholder', new_relevancestakeholder_path %>

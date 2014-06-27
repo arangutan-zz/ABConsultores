@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tema: MyString
+  fecha: 2014-06-24
+  asistentes: MyString
+  resumen: MyString
+  stakeholder_id: MyString
+
+two:
+  tema: MyString
+  fecha: 2014-06-24
+  asistentes: MyString
+  resumen: MyString
+  stakeholder_id: MyString

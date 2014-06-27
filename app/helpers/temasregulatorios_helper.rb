@@ -1,0 +1,2 @@
+module TemasregulatoriosHelper
+end

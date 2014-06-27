@@ -1,0 +1,89 @@
+<%= form_for(@stakeholder) do |f| %>
+  <% if @stakeholder.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@stakeholder.errors.count, "error") %> prohibited this stakeholder from being saved:</h2>
+
+      <ul>
+      <% @stakeholder.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :imagen %><br>
+    <%= f.file_field :imagen %>
+  </div>
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :apellido %><br>
+    <%= f.text_field :apellido %>
+  </div>
+  <div class="field">
+    <%= f.label :cargo %><br>
+    <%= f.text_field :cargo %>
+  </div>
+  <div class="field">
+    <%= f.label :movimiento_politico %><br>
+    <%= f.text_field :movimiento_politico %>
+  </div>
+  <div class="field">
+    <%= f.label :pais %><br>
+    <%= f.text_field :pais %>
+  </div>
+  <div class="field">
+    <%= f.label :departamento %><br>
+    <%= f.text_field :departamento %>
+  </div>
+  <div class="field">
+    <%= f.label :ciudad %><br>
+    <%= f.text_field :ciudad %>
+  </div>
+  <div class="field">
+    <%= f.label :impacto %><br>
+    <%= f.text_field :impacto %>
+  </div>
+  <div class="field">
+    <%= f.label :perfil %><br>
+    <%= f.text_field :perfil %>
+  </div>
+  <div class="field">
+    <%= f.label :disposicion %><br>
+    <%= f.text_field :disposicion %>
+  </div>
+  <div class="field">
+    <%= f.label :expectativas %><br>
+    <%= f.text_field :expectativas %>
+  </div>
+  <div class="field">
+    <%= f.label :dimension %><br>
+    <%= f.text_field :dimension %>
+  </div>
+  <div class="field">
+    <%= f.label :dependencia %><br>
+    <%= f.text_field :dependencia %>
+  </div>
+  <div class="field">
+    <%= f.label :necesidades_logro %><br>
+    <%= f.text_field :necesidades_logro %>
+  </div>
+  <div class="field">
+    <%= f.label :necesidades_poder %><br>
+    <%= f.text_field :necesidades_poder %>
+  </div>
+  <div class="field">
+    <%= f.label :necesidades_afiliacion %><br>
+    <%= f.text_field :necesidades_afiliacion %>
+  </div>
+  <div class="field">
+    <%= f.label :empresa_id %><br>
+    <%= f.text_field :empresa_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
