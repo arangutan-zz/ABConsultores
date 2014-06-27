@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140625193302) do
+ActiveRecord::Schema.define(version: 20140627211643) do
 
   create_table "compromises", force: true do |t|
     t.date     "fecha_inicial"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 20140625193302) do
     t.string   "imagen"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "fecha_vencimiento"
+    t.boolean  "habilidato"
   end
 
   create_table "entities", force: true do |t|
@@ -113,6 +115,7 @@ ActiveRecord::Schema.define(version: 20140625193302) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "entity_id"
+    t.string   "entidad"
   end
 
   create_table "temasregulatorios", force: true do |t|
