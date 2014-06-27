@@ -69,6 +69,6 @@ class StakeholdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stakeholder_params
-      params.require(:stakeholder).permit(:imagen, :nombre, :apellido, :cargo, :movimiento_politico, :pais, :departamento, :ciudad, :impacto, :perfil, :disposicion, :expectativas, :dimension, :dependencia, :necesidades_logro, :necesidades_poder, :necesidades_afiliacion, :empresa_id)
+      params.require(:stakeholder).permit(:imagen, :nombre, :apellido, :cargo, :movimiento_politico, :pais, :departamento, :ciudad, :impacto, :perfil, :disposicion, :expectativas, :dimension, :dependencia, :necesidades_logro, :necesidades_poder, :necesidades_afiliacion, :empresa_id ,:entidad, :entity_id)
     end
 end

@@ -4,7 +4,7 @@ class Stakeholder < ActiveRecord::Base
 	has_many :mettings
 	has_many :interest
 	has_many :temasregulatorios
-	has_one :entity
+	belongs_to :entity
 	belongs_to :empresa
 
 	has_many :relevances, :through => :relevancestakeholders

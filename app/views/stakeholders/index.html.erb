@@ -1,4 +1,4 @@
-<h1>Listing stakeholders</h1>
+<h1>Stakeholders</h1>
 
 <table>
   <thead>
@@ -6,22 +6,11 @@
       <th>Imagen</th>
       <th>Nombre</th>
       <th>Apellido</th>
-      <th>Empresa</th>
+      <th>Entidad</th>
       <th>Cargo</th>
-      <th>Movimiento politico</th>
+      <th>Tipo de entidad</th>
       <th>Pais</th>
-      <th>Departamento</th>
-      <th>Ciudad</th>
       <th>Impacto</th>
-      <th>Perfil</th>
-      <th>Disposicion</th>
-      <th>Expectativas</th>
-      <th>Dimension</th>
-      <th>Dependencia</th>
-      <th>Necesidades logro</th>
-      <th>Necesidades poder</th>
-      <th>Necesidades afiliacion</th>
-      <th>Empresa</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -32,21 +21,11 @@
         <td><%= image_tag stakeholder.imagen_url , class: 'imagen' %></td>
         <td><%= stakeholder.nombre %></td>
         <td><%= stakeholder.apellido %></td>
+        <td><%= stakeholder.entidad %></td>
         <td><%= stakeholder.cargo %></td>
-        <td><%= stakeholder.movimiento_politico %></td>
+        <td><%= stakeholder.entity ? stakeholder.entity.nombre : ''  %></td>
         <td><%= stakeholder.pais %></td>
-        <td><%= stakeholder.departamento %></td>
-        <td><%= stakeholder.ciudad %></td>
         <td><%= stakeholder.impacto %></td>
-        <td><%= stakeholder.perfil %></td>
-        <td><%= stakeholder.disposicion %></td>
-        <td><%= stakeholder.expectativas %></td>
-        <td><%= stakeholder.dimension %></td>
-        <td><%= stakeholder.dependencia %></td>
-        <td><%= stakeholder.necesidades_logro %></td>
-        <td><%= stakeholder.necesidades_poder %></td>
-        <td><%= stakeholder.necesidades_afiliacion %></td>
-        <td><%= stakeholder.empresa.nombre_comercial %></td>
         <td><%= link_to 'Show', stakeholder %></td>
         <td><%= link_to 'Edit', edit_stakeholder_path(stakeholder) %></td>
         <td><%= link_to 'Destroy', stakeholder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -58,3 +37,5 @@
 <br>
 
 <%= link_to 'New Stakeholder', new_stakeholder_path %>
+
+
