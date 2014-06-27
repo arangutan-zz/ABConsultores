@@ -1,12 +1,7 @@
-class MeetingsPdf < Prawn::Document
-	def initialize(meetings)
+class MeetingPdf < Prawn::Document
+	def initialize(meeting)
 	   	super()
-	   	meetings.each do |meeting|
-	   		imprimir(meeting)
-	   	end
-
-
-	   	
+	   		imprimir(meeting)   	
 	end
 
 	def imprimir(meeting)

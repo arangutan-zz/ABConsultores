@@ -5,11 +5,34 @@ class CompromisesController < ApplicationController
   # GET /compromises.json
   def index
     @compromises = Compromise.all
+
+
+    respond_to do |format|
+      format.html
+      format.pdf  do
+        pdf = CompromisesPdf.new(@compromises)
+        send_data pdf.render, filename: "prueba.pdf",
+                              type: "application/pdf",
+                              disposition: "inline"
+      end
+    end
+
   end
 
   # GET /compromises/1
   # GET /compromises/1.json
   def show
+
+    respond_to do |format|
+      format.html
+      format.pdf  do
+        pdf = CompromisePdf.new(@compromise)
+        send_data pdf.render, filename: "prueba.pdf",
+                              type: "application/pdf",
+                              disposition: "inline"
+      end
+    end
+
   end
 
   # GET /compromises/new

@@ -5,6 +5,17 @@ class InterestsController < ApplicationController
   # GET /interests.json
   def index
     @interests = Interest.all
+
+    respond_to do |format|
+      format.html
+      format.pdf  do
+        pdf = InterestsPdf.new(@interests)
+        send_data pdf.render, filename: "prueba.pdf",
+                              type: "application/pdf",
+                              disposition: "inline"
+      end
+    end
+
   end
 
   # GET /interests/1

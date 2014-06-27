@@ -20,6 +20,17 @@ class MettingsController < ApplicationController
   # GET /mettings/1
   # GET /mettings/1.json
   def show
+
+    respond_to do |format|
+      format.html
+      format.pdf  do
+        pdf = MeetingPdf.new(@metting)
+        send_data pdf.render, filename: "prueba.pdf",
+                              type: "application/pdf",
+                              disposition: "inline"
+      end
+    end
+
   end
 
   # GET /mettings/new
