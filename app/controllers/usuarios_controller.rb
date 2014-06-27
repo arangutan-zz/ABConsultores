@@ -3,7 +3,6 @@ class UsuariosController < ApplicationController
 
   def index
     @usuarios = current_user.empresa.users.all
-    
   end
 
   def new
@@ -25,7 +24,6 @@ class UsuariosController < ApplicationController
   end
 
   def update
-
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to '/usuarios/index', notice: 'El usuarios se edito correctamente' }
@@ -48,6 +46,16 @@ class UsuariosController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html
+      format.pdf  do
+        pdf = UsuarioPdf.new(@user, current_user)
+        send_data pdf.render, filename: "prueba.pdf",
+                              type: "application/pdf",
+                              disposition: "inline"
+      end
+    end
+
   end
 
   private

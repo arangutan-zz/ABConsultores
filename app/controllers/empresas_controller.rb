@@ -1,15 +1,34 @@
 class EmpresasController < ApplicationController
   before_action :set_empresa, only: [:show, :edit, :update, :destroy]
+  #before_action :authenticate_user!
 
   # GET /empresas
   # GET /empresas.json
   def index
     @empresas = Empresa.all
+    respond_to do |format|
+      format.html
+      format.pdf  do
+        pdf = EmpresasPdf.new(@empresas, current_user)
+        send_data pdf.render, filename: "prueba.pdf",
+                              type: "application/pdf",
+                              disposition: "inline"
+      end
+    end
   end
 
   # GET /empresas/1
   # GET /empresas/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.pdf  do
+        pdf = EmpresaPdf.new(@empresa, current_user)
+        send_data pdf.render, filename: "prueba.pdf",
+                              type: "application/pdf",
+                              disposition: "inline"
+      end
+    end
   end
 
   # GET /empresas/new

@@ -1,12 +1,7 @@
-class InterestsPdf < Prawn::Document
-	def initialize(interests)
+class InterestPdf < Prawn::Document
+	def initialize(interest)
 	   	super()
-	   	interests.each do |interest|
-	   		imprimir(interest)
-	   	end
-
-
-	   	
+   		imprimir(interest)
 	end
 
 	def imprimir(interest)
