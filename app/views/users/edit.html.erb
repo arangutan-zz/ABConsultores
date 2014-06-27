@@ -24,7 +24,11 @@
     </div>
   <div class="field">
     <%= f.label :empresa_id %>
-    <%= f.text_field :empresa_id %>
+    <% if current_user.isSuperAdmin? %>
+      <%= collection_select(:user, :empresa_id, Empresa.all, :id, :nombre_comercial,{prompt: 'Seleciona la empresa'} , required: '') %>
+    <% elsif current_user.isAdmin? %>
+      <%= collection_select(:user, :empresa_id, Empresa.all, :id, :nombre_comercial,{prompt: 'Seleciona la empresa'} , required: '', disabled: '') %>
+    <% end %>
     </div>
   <div class="field">
     <%= f.label :rol %>
@@ -37,7 +41,7 @@
   <div class="field">
     <%= f.label 'Confirmar Clave' %>
     <%= f.text_field :password_confirmation %>
-    </div>
+  </div>
   <div class="field">
     <%= f.label 'Usuario' %>
     <%= f.text_field :username %>

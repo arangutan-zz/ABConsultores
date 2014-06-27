@@ -5,9 +5,8 @@
     <tr>
       <th>Titulo</th>
       <th>Resumen</th>
-      <th>Imagen</th>
       <th>Stakeholder</th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -16,8 +15,8 @@
       <tr>
         <td><%= temasregulatorio.titulo %></td>
         <td><%= temasregulatorio.resumen %></td>
-        <td><%= image_tag temasregulatorio.imagen_url, class: 'imagen' %></td>
         <td><%= temasregulatorio.stakeholder.nombre %></td>
+        <td><%= link_to 'Archivo', temasregulatorio.imagen_url %></td>
         <td><%= link_to 'Show', temasregulatorio %></td>
         <td><%= link_to 'Edit', edit_temasregulatorio_path(temasregulatorio) %></td>
         <td><%= link_to 'Destroy', temasregulatorio, method: :delete, data: { confirm: 'Are you sure?' } %></td>

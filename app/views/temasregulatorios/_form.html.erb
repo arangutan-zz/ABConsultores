@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :stakeholder_id %><br>
-    <%= f.text_field :stakeholder_id %>
+    <%= collection_select(:temasregulatorio, :stakeholder_id, current_user.empresa.stakeholders.all.uniq!, :id, :nombre_completo,{prompt: 'Seleciona el stakeholder'} , required: '')%>
   </div>
   <div class="actions">
     <%= f.submit %>

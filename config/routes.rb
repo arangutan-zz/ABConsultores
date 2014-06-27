@@ -1,17 +1,31 @@
 Rails.application.routes.draw do
-  get 'users/new'
 
-  post 'users' , to:  'users#create' , as: 'users'
+  
+  get 'usuarios/new'
 
-  put 'users/:id', to: 'users#update', as: 'users/update'
+  get 'usuarios/index'
 
-  get 'users/:id/edit' , to: 'users#edit' , as: 'users/edit'
+  post 'ususarios/create' , to:  'usuarios#create' , as: 'usuarios'
 
-  delete 'users/:id', to: 'user#destroy' , as: 'user/destroy'
+  put 'usuarios/:id', to: 'usuarios#update', as: 'usuarios/update'
 
-  get 'users/show'
+  get 'usuarios/:id/edit' , to: 'usuarios#edit' , as: 'usuarios/edit'
 
-  get 'users/index'
+  delete 'usuarios/:id', to: 'usuarios#destroy' , as: 'usuarios/destroy'
+
+  # get 'users/new'
+
+  # post 'users' , to:  'users#create' , as: 'users'
+
+  # put 'users/:id', to: 'users#update', as: 'users/update'
+
+  # get 'users/:id/edit' , to: 'users#edit' , as: 'users/edit'
+
+  # delete 'users/:id', to: 'user#destroy' , as: 'user/destroy'
+
+  #get 'users/show'
+
+  #get 'users/index'
 
   #resources :users, controller: 'users'
 

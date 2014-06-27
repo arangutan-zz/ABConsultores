@@ -33,9 +33,9 @@
 					%td
 						= user.rol
 					%td
-						= link_to 'Editar', users_edit_path(user)
+						= link_to 'Editar', usuarios_edit_path(user)
 					%td
 						= link_to 'Borrar', user.id.to_s, method: :delete, data: { confirm: 'Are you sure?' }
 
 
-= link_to 'Agregar nuevo', users_new_path
+= link_to 'Agregar nuevo', usuarios_new_path
