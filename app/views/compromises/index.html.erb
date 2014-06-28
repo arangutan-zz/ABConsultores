@@ -20,7 +20,7 @@
         <td><%= compromise.fecha_limite %></td>
         <td><%= compromise.compromisos %></td>
         <td><%= compromise.stakeholder.nombre %></td>
-        <td><%= link_to 'Show', compromise %></td>
+        <td><%= link_to 'pdf', '/compromises/'+compromise.id.to_s+'.pdf', target: '_blank' %></td>
         <td><%= link_to 'Edit', edit_compromise_path(compromise) %></td>
         <td><%= link_to 'Destroy', compromise, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -31,3 +31,5 @@
 <br>
 
 <%= link_to 'New Compromise', new_compromise_path %>
+<br>
+<%= link_to 'Pdf', '/compromises.pdf' , target: '_blank'%>

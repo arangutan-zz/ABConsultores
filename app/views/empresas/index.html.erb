@@ -22,7 +22,7 @@
         <td><%= empresa.nit %></td>
         <td><%= empresa.representante_legal %></td>
         <td><%= empresa.created_at.to_s %></td>
-        <td><%= link_to 'Ver', empresa %></td>
+        <td><%= link_to 'Ver', '/empresas/'+empresa.id.to_s+'.pdf' , target: "_blank" %></td>
         <td><%= link_to 'Editar', edit_empresa_path(empresa) %></td>
         <td><%= link_to 'Eliminar', empresa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -33,3 +33,5 @@
 <br>
 
 <%= link_to 'Nueva Empresa', new_empresa_path %>
+<br>
+<%= link_to 'PDF' , '/empresas.pdf' , target: "_blank" %>

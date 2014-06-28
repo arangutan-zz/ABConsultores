@@ -84,9 +84,16 @@
     <%= f.text_field :entidad %>
   </div>
   <div class="field">
-    <%= f.label :empresa_id %><br>
-    <%= f.text_field :empresa_id %>
-  </div>  
+    <%= f.label 'Entidad' %><br>
+    <%= collection_select(:stakeholder, :entity_id, Entity.all, :id, :nombre,{prompt: 'Seleciona la entidad'} , required: '')%>
+  </div>
+  <% if  @stakeholder.empresa_id %>
+    <%= hidden_field_tag 'stakeholder[empresa_id]', @stakeholder.empresa_id %>
+  <% else %>
+    <%= hidden_field_tag 'stakeholder[empresa_id]', current_user.empresa.id %>
+  <% end %>
+
+  
   <div class="actions">
     <%= f.submit %>
   </div>

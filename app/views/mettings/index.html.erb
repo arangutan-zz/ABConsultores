@@ -20,7 +20,7 @@
         <td><%= metting.asistentes %></td>
         <td><%= metting.resumen %></td>
         <td><%= metting.stakeholder.nombre %></td>
-        <td><%= link_to 'Show', metting %></td>
+        <td><%= link_to 'Pdf', '/mettings/'+metting.id.to_s+'.pdf' , target: '_blank'%></td>
         <td><%= link_to 'Edit', edit_metting_path(metting) %></td>
         <td><%= link_to 'Destroy', metting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -31,3 +31,5 @@
 <br>
 
 <%= link_to 'New Metting', new_metting_path %>
+<br>
+<%= link_to 'Pdf', '/mettings.pdf', target: '_blank' %>

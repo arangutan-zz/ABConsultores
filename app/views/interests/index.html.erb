@@ -17,7 +17,7 @@
         <td><%= interest.informacion %></td>
         <td><%= interest.stakeholder.nombre %></td>
         <td><%= link_to 'Archivo', interest.imagen_url  %></td>
-        <td><%= link_to 'Show', interest %></td>
+        <td><%= link_to 'Pdf', '/interests/'+interest.id.to_s+'.pdf' , target: '_blank'%></td>
         <td><%= link_to 'Edit', edit_interest_path(interest) %></td>
         <td><%= link_to 'Destroy', interest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -28,3 +28,5 @@
 <br>
 
 <%= link_to 'New Interest', new_interest_path %>
+<br>
+<%= link_to 'PDF', '/interests.pdf', target: '_blank' %>
