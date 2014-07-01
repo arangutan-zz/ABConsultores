@@ -1,26 +1,27 @@
-%ul#selector
-	
-	-if current_user.isSuperAdmin? && !current_user.isAdmin?
+.menu_general
+	= image_tag 'menu_btn.png' , class: 'cerrar_menu'
+	%ul#lista_menu
+		-if current_user.isSuperAdmin? && !current_user.isAdmin?
+			%li
+				= link_to 'ADMINISTRACIÓN DE EMPRESAS', empresas_path
+			%li
+				= link_to 'ADMINISTRACIÓN TIPOS DE ENTIDAD', entities_path
+		-if current_user.isAdmin? or current_user.isSuperAdmin?
+			%li
+				= link_to 'ADMINISTRACIÓN USUARIOS', usuarios_index_path
 		%li
-			= link_to 'administracion empresas', empresas_path
+			= link_to 'ADMINISTRACIÓN STAKEHOLDERS', stakeholders_path
 		%li
-			= link_to 'administracion tipos de entidad', entities_path
-	-if current_user.isAdmin? or current_user.isSuperAdmin?
+			= link_to 'REUNIONES', mettings_path
 		%li
-			= link_to 'administracion usuarios', usuarios_index_path
-	%li
-		= link_to 'administracion stakeholders', stakeholders_path
-	%li
-		= link_to 'administracion reuniones', mettings_path
-	%li
-		= link_to 'administracion compromisos', compromises_path
-	%li
-		= link_to 'administracion temas de interes', interests_path
-	%li
-		= link_to 'administracion temas regulatorios', temasregulatorios_path
-	%li
-		= link_to 'administracion Cambiar Contraseña', '#'
-	%li
-		= link_to 'administracion salir', destroy_user_session_path, method: :delete
+			= link_to 'COMPROMISOS', compromises_path
+		%li
+			= link_to 'TEMAS DE INTERES', interests_path
+		%li
+			= link_to 'TEMAS REGULATORIOS', temasregulatorios_path
+		%li
+			= link_to 'CAMBIAR CONTRASEÑA', '#'
+		%li
+			= link_to 'SALIR', destroy_user_session_path, method: :delete
 
 
