@@ -1,32 +1,59 @@
-<h1>Listing interests</h1>
+<div class="row">
+  <div class="large-6 column">
+    <h2 class="azul">
+      TEMAS DE INTERÉS
+    </h2>      
+  </div>
+  <div class="large-6 column text-right">
+    <%= link_to (image_tag 'crear_nuevo2.png'), new_interest_path %>
+    &nbsp;&nbsp;&nbsp;
+    <%= link_to (image_tag 'imprimir2.png'), '/interests.pdf' , target: '_blank'%>
+    
+  </div>
+</div>
+<hr class="linea">
 
-<table>
-  <thead>
+<table id="buscar" cellspacing="0" width="100%">
+  <thead class="head-tabla">
     <tr>
       <th>Tema</th>
       <th>Informacion</th>
       <th>Stakeholder</th>
-      <th colspan="4"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @interests.each do |interest| %>
+    <% @empresas.each do |empresa| %>
       <tr>
-        <td><%= interest.tema %></td>
-        <td><%= interest.informacion %></td>
-        <td><%= interest.stakeholder.nombre %></td>
-        <td><%= link_to 'Archivo', interest.imagen_url  %></td>
-        <td><%= link_to 'Pdf', '/interests/'+interest.id.to_s+'.pdf' , target: '_blank'%></td>
-        <td><%= link_to 'Edit', edit_interest_path(interest) %></td>
-        <td><%= link_to 'Destroy', interest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= image_tag empresa.imagen_url , class: 'imagen' %></td>
+        <td><%= empresa.nombre_comercial %></td>
+        <td><%= empresa.razon_social %></td>
+        <td><%= empresa.nit %></td>
+        <td><%= empresa.representante_legal %></td>
+        <td><%= empresa.created_at.to_s %></td>
+        <td><%= link_to 'Ver', '/empresas/'+empresa.id.to_s+'.pdf' , target: "_blank" %></td>
+        <td><%= link_to 'Editar', edit_empresa_path(empresa) %></td>
+        <td><%= link_to 'Eliminar', empresa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+<br>
+<br>
+<br>
 <br>
 
-<%= link_to (image_tag 'crear_nuevo2.png'), new_interest_path %>
-<br>
-<%= link_to 'PDF', '/interests.pdf', target: '_blank' %>
+<hr class="linea">
+
+<script type="text/javascript" >
+  $(document).ready(function(){
+    $('#buscar').dataTable({
+      "paging":   false,
+        "info":     false
+    });
+  });
+</script>
+
+
+
+

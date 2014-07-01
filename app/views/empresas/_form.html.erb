@@ -11,59 +11,110 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nombre_comercial %><br>
-    <%= f.text_field :nombre_comercial %>
+<div class="row">
+  <div class="large-4 columns">
+    <input type="checkbox"> &nbsp;Habilitado<br>
+      <% if @empresa.imagen_url %>
+        <div class="roundLabel">
+          <%= image_tag @empresa.imagen_url, class: 'imagen' %>  
+        </div>
+      <% else %>
+        <div class="roundLabel">
+          <%= image_tag 'seleccione_imagen.png' %>
+          <%= f.label :imagen %><br>
+          <%= f.file_field :imagen %>
+        </div>
+      <% end %> 
+      
   </div>
-  <div class="field">
-    <%= f.label :razon_social %><br>
-    <%= f.text_field :razon_social %>
+
+  <div class="large-8 columns">
+    <div class="large-5 columns">
+      <%= f.label :nombre_comercial %>
+    </div>
+    <div class="large-7 columns field">
+      <%= f.text_field :nombre_comercial %>
+    </div>
+
+    <div class="large-5 columns">
+      <%= f.label :razon_social %>
+    </div>
+    <div class="large-7 columns field">
+       <%= f.text_field :razon_social %>
+    </div>
+
+    <div class="large-5 columns">
+      <%= f.label :nit %>
+    </div>
+    <div class="large-7 columns field">
+       <%= f.text_field :nit %>
+    </div>
+
+    <div class="large-5 columns">
+      <%= f.label :representante_legal %>
+    </div>
+    <div class="large-7 columns field">
+       <%= f.text_field :representante_legal %>
+    </div>
+
+    <div class="large-5 columns">
+      <%= f.label :nombre_contacto %>
+    </div>
+    <div class="large-7 columns field">
+       <%= f.text_field :nombre_contacto %>
+    </div>
+
+    <div class="large-5 columns">
+      <%= f.label :email_contacto %>
+    </div>
+    <div class="large-7 columns field">
+       <%= f.text_field :email_contacto %>
+    </div>
+
+    <div class="large-5 columns">
+      <%= f.label :telefono_contacto %>
+    </div>
+    <div class="large-7 columns field">
+       <%= f.text_field :telefono_contacto %>
+    </div>
+
+    <div class="large-5 columns">
+      <%= f.label :direccion_contacto %>
+    </div>
+    <div class="large-7 columns field">
+       <%= f.text_field :direccion_contacto %>
+    </div>
+
+    <div class="large-5 columns">
+      <%= f.label :ciudad %>
+    </div>
+    <div class="large-7 columns field">
+       <%= f.text_field :ciudad %>
+    </div>
+
+    <div class="large-5 columns">
+      <%= f.label :pais %>
+    </div>
+    <div class="large-7 columns field">
+       <%= f.text_field :pais %>
+    </div>
+
+    <div class="large-5 columns">
+      <%= f.label :pagina_web %>
+    </div>
+    <div class="large-7 columns field">
+       <%= f.text_field :pagina_web %>
+    </div>
+
   </div>
-  <div class="field">
-    <%= f.label :nit %><br>
-    <%= f.text_field :nit %>
-  </div>
-  <div class="field">
-    <%= f.label :representante_legal %><br>
-    <%= f.text_field :representante_legal %>
-  </div>
-  <div class="field">
-    <%= f.label :nombre_contacto %><br>
-    <%= f.text_field :nombre_contacto %>
-  </div>
-  <div class="field">
-    <%= f.label :email_contacto %><br>
-    <%= f.text_field :email_contacto %>
-  </div>
-  <div class="field">
-    <%= f.label :telefono_contacto %><br>
-    <%= f.text_field :telefono_contacto %>
-  </div>
-  <div class="field">
-    <%= f.label :direccion_contacto %><br>
-    <%= f.text_field :direccion_contacto %>
-  </div>
-  <div class="field">
-    <%= f.label :ciudad %><br>
-    <%= f.text_field :ciudad %>
-  </div>
-  <div class="field">
-    <%= f.label :pais %><br>
-    <%= f.text_field :pais %>
-  </div>
-  <div class="field">
-    <%= f.label :pagina_web %><br>
-    <%= f.text_field :pagina_web %>
-  </div>
-  <div class="field">
-    <%=  %><br>
-    <%= image_tag @empresa.imagen_url, class: 'imagen' %>
-  </div>
-  <div class="field">
-    <%= f.label :imagen %><br>
-    <%= f.file_field :imagen %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+</div>
+<br>
+<br>
+<br>
+  <div class="row">
+    <div class="large-12 column text-center">
+      <%= link_to 'Atras', empresas_path ,class: 'button verde-bg'  %>
+      <%= f.submit 'Guardar' , class: 'button verde-bg' %>  
+    </div>
   </div>
 <% end %>
