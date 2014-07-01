@@ -1,7 +1,8 @@
 class MeetingPdf < Prawn::Document
-	def initialize(meeting)
+	def initialize(meeting,current_user)
 	   	super()
-	   		imprimir(meeting)   	
+	   	@current_user=current_user
+	   	imprimir(meeting)   	
 	end
 
 	def imprimir(meeting)
@@ -49,7 +50,7 @@ class MeetingPdf < Prawn::Document
 	end
 
 	def displayImage(meeting)
-		image Rails.root.to_s+"/public"+ meeting.stakeholder.empresa.imagen_url, :height => 150, :position => :center, :vposition => :top
+		image Rails.root.to_s+"/public"+ @current_user.empresa.imagen_url, :height => 150, :position => :center, :vposition => :top
 	end
 
 end

@@ -159,7 +159,7 @@ class EmpresasPdf < Prawn::Document
 	end
 
 	def displayImage(empresa)
-		image Rails.root.to_s+"/public"+ empresa.imagen_url, :height => 150, :position => :center, :vposition => :top
+		image Rails.root.to_s+"/public"+ @current_user.empresa.imagen_url, :height => 150, :position => :center, :vposition => :top
 	end
 
 end

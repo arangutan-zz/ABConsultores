@@ -1,6 +1,7 @@
 class InterestsPdf < Prawn::Document
-	def initialize(interests)
+	def initialize(interests,current_user)
 	   	super()
+	   	@current_user=current_user
 	   	interests.each do |interest|
 	   		imprimir(interest)
 	   	end
@@ -63,7 +64,7 @@ class InterestsPdf < Prawn::Document
 	end
 
 	def displayImage(interest)
-		image Rails.root.to_s+"/public"+ interest.stakeholder.empresa.imagen_url, :height => 150, :position => :center, :vposition => :top
+		image Rails.root.to_s+"/public"+ @current_user.empresa.imagen_url, :height => 150, :position => :center, :vposition => :top
 	end
 
 end
