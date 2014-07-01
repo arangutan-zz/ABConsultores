@@ -8,3 +8,10 @@
 #		"paging":   false,
 #        "info":     false
 #	)
+
+$(document).ready ->
+	$('.abrir_menu').on 'click', ->
+			$('.menu_general').show()
+
+	$('.cerrar_menu').on 'click', ->
+			$('.menu_general').hide()
