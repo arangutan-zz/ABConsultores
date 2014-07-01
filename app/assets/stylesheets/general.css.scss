@@ -15,6 +15,10 @@ body{
 	color: #6FA361;
 }
 
+.blanco{
+	color: white;
+}
+
 .verde-bg{
 	background: #6FA361;
 }
@@ -22,7 +26,6 @@ body{
 .verde-bg:hover{
 	background: #6FA361;
 }
-
 
 .linea{
 	border: 0;
@@ -43,4 +46,19 @@ body{
 
 .dataTables_filter label{
 	float: none !important;
+}
+
+.head-tabla{
+	background: #639cc6;
+}
+
+.head-tabla tr th{
+	color: white;
+	font-weight: normal;
+}
+
+.titulo-editar{
+	background:#639cc6;
+	padding: 10px 0;
+	color: white;
 }
