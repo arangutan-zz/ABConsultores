@@ -1,4 +1,46 @@
+body{
+	background: #E6E6E6;
+	font-family: 'Lato', sans-serif;
+}
+
+.azul{
+	color: #639cc6;
+}
+
+.gris{
+	color: #898989;
+}
+
+.verde{
+	color: #6FA361;
+}
+
+.verde-bg{
+	background: #6FA361;
+}
+
+.verde-bg:hover{
+	background: #6FA361;
+}
+
+
+.linea{
+	border: 0;
+	border-top: 1px solid #eeeeee;
+	border-bottom: 1px solid #ffffff;
+}
+
 .imagen{
 	width: 200px;
 	height: 200px;
+}
+
+
+/*Table*/
+.dataTables_info{
+	display: none;
+}
+
+.dataTables_filter label{
+	float: none !important;
 }

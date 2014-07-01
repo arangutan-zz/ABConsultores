@@ -84,7 +84,7 @@
     <%= f.text_field :entidad %>
   </div>
   <div class="field">
-    <%= f.label 'Entidad' %><br>
+    <%= f.label 'Tipo de Entidad' %><br>
     <%= collection_select(:stakeholder, :entity_id, Entity.all, :id, :nombre,{prompt: 'Seleciona la entidad'} , required: '')%>
   </div>
   <% if  @stakeholder.empresa_id %>

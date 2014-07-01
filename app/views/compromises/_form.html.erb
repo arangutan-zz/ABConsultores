@@ -10,28 +10,46 @@
       </ul>
     </div>
   <% end %>
+  <div class="row">
+    <div class="large-6 column">
+      <%= f.label :fecha_inicial %>
+      <br>
+      <div class="row">
+      <%= f.date_select :fecha_inicial ,{ start_year: Date.current.year,end_year: Date.current.year+10, use_month_names: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre']} ,class: 'large-4 small-4 column' %>
+      </div>
+    </div>
+    <div class="large-6 column">
+      <%= f.label :stakeholder_id %><br>
+      <%= collection_select(:compromise, :stakeholder_id, current_user.empresa.stakeholders.all.uniq!, :id, :nombre_completo,{prompt: 'Seleciona el stakeholder'} , required: '')%>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :fecha_inicial %><br>
-    <%= f.date_select :fecha_inicial ,{ start_year: Date.current.year,end_year: Date.current.year+10, use_month_names: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre']}%>
+  <div class="row">
+    <div class="large-6 column">
+      <%= f.label :correo %><br>
+      <%= f.text_field :correo %>
+    </div>
+    <div class="large-6 column">
+      <%= f.label :fecha_limite %>
+      <br>
+      <div class="row">
+        <%= f.date_select :fecha_limite ,{ start_year: Date.current.year,end_year: Date.current.year+10, use_month_names: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre']} ,class: 'large-4 small-4 column'%>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :correo %><br>
-    <%= f.text_field :correo %>
+  
+  <div class="row">
+    <div class="large-12 column">
+      <%= f.label :compromisos %><br>
+      <%= text_area( :compromise , :compromisos , size: "10x10") %>
+    </div>
+  </div>  
+
+  <div class="row">
+    <div class="large-12 column text-center">
+      <%= link_to 'Atras', compromises_path ,class: 'button verde-bg'  %>
+      <%= f.submit 'Guardar' , class: 'button verde-bg' %>  
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :fecha_limite %><br>
-    <%= f.date_select :fecha_limite ,{ start_year: Date.current.year,end_year: Date.current.year+10, use_month_names: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre']}%>
-  </div>
-  <div class="field">
-    <%= f.label :compromisos %><br>
-    <%= f.text_field :compromisos %>
-  </div>
-  <div class="field">
-    <%= f.label :stakeholder_id %><br>
-    <%= collection_select(:compromise, :stakeholder_id, current_user.empresa.stakeholders.all.uniq!, :id, :nombre_completo,{prompt: 'Seleciona el stakeholder'} , required: '')%>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
 <% end %>

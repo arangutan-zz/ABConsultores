@@ -51,7 +51,7 @@ class CompromisesController < ApplicationController
 
     respond_to do |format|
       if @compromise.save
-        format.html { redirect_to @compromise, notice: 'Compromise was successfully created.' }
+        format.html { redirect_to compromises_url, notice: 'El compromiso se creo correctamente' }
         format.json { render :show, status: :created, location: @compromise }
       else
         format.html { render :new }
@@ -65,7 +65,7 @@ class CompromisesController < ApplicationController
   def update
     respond_to do |format|
       if @compromise.update(compromise_params)
-        format.html { redirect_to @compromise, notice: 'Compromise was successfully updated.' }
+        format.html { redirect_to compromises_url, notice: 'El compromiso se actualizo correctamente' }
         format.json { render :show, status: :ok, location: @compromise }
       else
         format.html { render :edit }
@@ -79,7 +79,7 @@ class CompromisesController < ApplicationController
   def destroy
     @compromise.destroy
     respond_to do |format|
-      format.html { redirect_to compromises_url, notice: 'Compromise was successfully destroyed.' }
+      format.html { redirect_to compromises_url, notice: 'El compromiso se elimino correctamente' }
       format.json { head :no_content }
     end
   end
