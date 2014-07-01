@@ -5,11 +5,30 @@ class TemasregulatoriosController < ApplicationController
   # GET /temasregulatorios.json
   def index
     @temasregulatorios = Temasregulatorio.all
+
+    respond_to do |format|
+      format.html
+      format.pdf  do
+        pdf = TemasregulatoriosPdf.new(@temasregulatorios, current_user)
+        send_data pdf.render, filename: "prueba.pdf",
+                              type: "application/pdf",
+                              disposition: "inline"
+      end
+    end
   end
 
   # GET /temasregulatorios/1
   # GET /temasregulatorios/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.pdf  do
+        pdf = TemasregulatorioPdf.new(@temasregulatorio, current_user)
+        send_data pdf.render, filename: "prueba.pdf",
+                              type: "application/pdf",
+                              disposition: "inline"
+      end
+    end
   end
 
   # GET /temasregulatorios/new

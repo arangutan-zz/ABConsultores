@@ -9,7 +9,7 @@ class InterestsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf  do
-        pdf = InterestsPdf.new(@interests)
+        pdf = InterestsPdf.new(@interests, current_user)
         send_data pdf.render, filename: "prueba.pdf",
                               type: "application/pdf",
                               disposition: "inline"
@@ -24,7 +24,7 @@ class InterestsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf  do
-        pdf = InterestPdf.new(@interest)
+        pdf = InterestPdf.new(@interest, current_user)
         send_data pdf.render, filename: "prueba.pdf",
                               type: "application/pdf",
                               disposition: "inline"

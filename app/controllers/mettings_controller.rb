@@ -9,7 +9,7 @@ class MettingsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf  do
-        pdf = MeetingsPdf.new(@mettings)
+        pdf = MeetingsPdf.new(@mettings, current_user)
         send_data pdf.render, filename: "prueba.pdf",
                               type: "application/pdf",
                               disposition: "inline"
@@ -24,7 +24,7 @@ class MettingsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf  do
-        pdf = MeetingPdf.new(@metting)
+        pdf = MeetingPdf.new(@metting, current_user)
         send_data pdf.render, filename: "prueba.pdf",
                               type: "application/pdf",
                               disposition: "inline"

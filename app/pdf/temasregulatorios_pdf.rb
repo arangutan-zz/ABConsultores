@@ -1,48 +1,49 @@
-class InterestPdf < Prawn::Document
-	def initialize(interest,current_user)
+class TemasregulatoriosPdf < Prawn::Document
+	def initialize(temasregulatorios,current_user)
 	   	super()
 	   	@current_user=current_user
-   		imprimir(interest)
+	   	#@current_user=current_user
+	   	temasregulatorios.each do |temasregulatorio|
+	   		imprimir(temasregulatorio)
+	   	end
 	end
 
-	def imprimir(interest)
-		displayImage(interest)
+	def imprimir(temasregulatorio)
+		displayImage(temasregulatorio)
 		bounding_box([0, 550], :width => 550, :height => 70) do
 			font "Times-Roman", :style => :bold
 			font_size 18
-			text "COMPROMISOS", :valign => :center
+			text "TEMAS REGULATORIOS", :valign => :center
 			transparent(0.5) { stroke_bounds }
 		end
 		font_size 12
 		font "Times-Roman", :style => :bold
-		text "\nID TEMA DE INTERÉS: ", :color => "4d4d4d"
+		text "\nID TEMA REGULATORIO: ", :color => "4d4d4d"
 		font "Times-Roman", :style => :normal
-		text interest.id.to_s+"\n", :color => "4d4d4d"   
+		text temasregulatorio.id.to_s+"\n", :color => "4d4d4d"   		
 
 		font "Times-Roman", :style => :bold
 		text "\nSTAKEHOLDER: ", :color => "4d4d4d"
 		font "Times-Roman", :style => :normal
-		text interest.stakeholder.nombre+ "" + interest.stakeholder.apellido, :color => "4d4d4d"
-		transparent(0.5) {}
+		text temasregulatorio.stakeholder.nombre+""+temasregulatorio.stakeholder.apellido+"\n", :color => "4d4d4d"   				
 
 		font "Times-Roman", :style => :bold
 		text "\nRESUMEN: ", :color => "4d4d4d"
 		font "Times-Roman", :style => :normal
-		text interest.informacion+"\n", :color => "4d4d4d" 
+		text temasregulatorio.resumen+"\n", :color => "4d4d4d"   
 
 		font "Times-Roman", :style => :bold
 		text "\nTEMA: ", :color => "4d4d4d"
 		font "Times-Roman", :style => :normal
-		text interest.tema+"\n", :color => "4d4d4d" 
-
+		text temasregulatorio.titulo+"\n", :color => "4d4d4d"   
 
 		y_position = cursor
 
 		bounding_box([0, y_position], :width => 200,) do
 			font "Times-Roman", :style => :bold
-			text "\nARCHIVO: ", :color => "4d4d4d"
+			text "\nARCHIVO ", :color => "4d4d4d"
 			font "Times-Roman", :style => :normal
-			#text interest.imagen_url+"\n", :color => "4d4d4d"  
+			text temasregulatorio.imagen_url+"\n", :color => "4d4d4d"  
 			transparent(0.5) {}
 		end
 		
@@ -50,7 +51,7 @@ class InterestPdf < Prawn::Document
 			font "Times-Roman", :style => :bold
 			text "\nFECHA DE CREACIÓN: ", :color => "4d4d4d"
 			font "Times-Roman", :style => :normal
-			text interest.created_at.to_s+"\n", :color => "4d4d4d"  
+			text temasregulatorio.created_at.to_s+"\n", :color => "4d4d4d"  
 
 			transparent(0.5) {}
 		end
@@ -58,7 +59,7 @@ class InterestPdf < Prawn::Document
    		start_new_page(:top_margin => 0)
 	end
 
-	def displayImage(interest)
+	def displayImage(temasregulatorio)
 		image Rails.root.to_s+"/public"+ @current_user.empresa.imagen_url, :height => 150, :position => :center, :vposition => :top
 	end
 

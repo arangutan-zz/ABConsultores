@@ -10,7 +10,7 @@ class CompromisesController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf  do
-        pdf = CompromisesPdf.new(@compromises)
+        pdf = CompromisesPdf.new(@compromises, current_user)
         send_data pdf.render, filename: "prueba.pdf",
                               type: "application/pdf",
                               disposition: "inline"
@@ -26,7 +26,7 @@ class CompromisesController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf  do
-        pdf = CompromisePdf.new(@compromise)
+        pdf = CompromisePdf.new(@compromise, current_user)
         send_data pdf.render, filename: "prueba.pdf",
                               type: "application/pdf",
                               disposition: "inline"

@@ -1,6 +1,7 @@
 class CompromisePdf < Prawn::Document
-	def initialize(compromise)
+	def initialize(compromise,current_user)
 	   	super()
+	   	@current_user=current_user
 	   	imprimir(compromise)
   	
 	end
@@ -63,7 +64,7 @@ class CompromisePdf < Prawn::Document
 	end
 
 	def displayImage(compromise)
-		image Rails.root.to_s+"/public"+ compromise.stakeholder.empresa.imagen_url, :height => 150, :position => :center, :vposition => :top
+		image Rails.root.to_s+"/public"+ @current_user.empresa.imagen_url, :height => 150, :position => :center, :vposition => :top
 	end
 
 end
