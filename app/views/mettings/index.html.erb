@@ -1,14 +1,29 @@
-<h1>Listing mettings</h1>
+<div class="row">
+  <div class="large-6 column">
+    <h2 class="azul">
+      REUNIONES
+    </h2>      
+  </div>
+  <div class="large-6 column text-right">
+    <%= link_to (image_tag 'crear_nuevo2.png'), new_metting_path %>
+    &nbsp;&nbsp;&nbsp;
+    <%= link_to (image_tag 'imprimir2.png'), '/mettings.pdf', target: '_blank' %>
+    
+  </div>
+</div>
+<hr class="linea">
 
-<table>
-  <thead>
+<table id="buscar" cellspacing="0" width="100%">
+  <thead class="head-tabla">
     <tr>
       <th>Tema</th>
       <th>Fecha</th>
       <th>Asistentes</th>
       <th>Resumen</th>
       <th>Stakeholder</th>
-      <th colspan="3"></th>
+      <th>PDF</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
     </tr>
   </thead>
 
@@ -20,16 +35,25 @@
         <td><%= metting.asistentes %></td>
         <td><%= metting.resumen %></td>
         <td><%= metting.stakeholder.nombre %></td>
-        <td><%= link_to 'Pdf', '/mettings/'+metting.id.to_s+'.pdf' , target: '_blank'%></td>
-        <td><%= link_to 'Edit', edit_metting_path(metting) %></td>
-        <td><%= link_to 'Destroy', metting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to (image_tag 'imprimir_pequeno.png'), '/mettings/'+metting.id.to_s+'.pdf' , target: '_blank'%></td>
+        <td><%= link_to (image_tag 'editar_1.png'), edit_metting_path(metting) %></td>
+        <td><%= link_to (image_tag 'eliminar_1.png'), metting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+<br>
+<br>
+<br>
 <br>
 
-<%= link_to (image_tag 'crear_nuevo2.png'), new_metting_path %>
-<br>
-<%= link_to 'Pdf', '/mettings.pdf', target: '_blank' %>
+<hr class="linea">
+
+<script type="text/javascript" >
+  $(document).ready(function(){
+    $('#buscar').dataTable({
+      "paging":   false,
+        "info":     false
+    });
+  });
+</script>

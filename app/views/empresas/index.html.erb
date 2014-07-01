@@ -37,9 +37,9 @@
         <td><%= empresa.nit %></td>
         <td><%= empresa.representante_legal %></td>
         <td><%= empresa.created_at.to_s %></td>
-        <td><%= link_to 'Ver', '/empresas/'+empresa.id.to_s+'.pdf' , target: "_blank" %></td>
-        <td><%= link_to 'Editar', edit_empresa_path(empresa) %></td>
-        <td><%= link_to 'Eliminar', empresa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to (image_tag 'imprimir_pequeno.png'), '/empresas/'+empresa.id.to_s+'.pdf' , target: "_blank" %></td>
+        <td><%= link_to (image_tag 'editar_1.png'), edit_empresa_path(empresa) %></td>
+        <td><%= link_to (image_tag 'eliminar_1.png'), empresa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

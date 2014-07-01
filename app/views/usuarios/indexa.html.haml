@@ -35,11 +35,11 @@
 					%td
 						= user.rol
 					%td
-						= link_to 'PDF', '/usuarios/'+user.id.to_s+'.pdf' , target: '_blank'
+						= link_to (image_tag 'imprimir_pequeno.png'), '/usuarios/'+user.id.to_s+'.pdf' , target: '_blank'
 					%td
-						= link_to 'Editar', usuarios_edit_path(user)
+						= link_to (image_tag 'editar_1.png'), usuarios_edit_path(user)
 					%td
-						= link_to 'Borrar', user.id.to_s, method: :delete, data: { confirm: 'Are you sure?' }
+						= link_to (image_tag 'eliminar_1.png'), user.id.to_s, method: :delete, data: { confirm: 'Are you sure?' }
 
 
 = link_to (image_tag 'crear_nuevo2.png') , usuarios_new_path

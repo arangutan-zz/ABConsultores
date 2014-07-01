@@ -47,7 +47,7 @@ class InterestsPdf < Prawn::Document
 			font "Times-Roman", :style => :bold
 			text "\nARCHIVO: ", :color => "4d4d4d"
 			font "Times-Roman", :style => :normal
-			#text interest.imagen_url+"\n", :color => "4d4d4d"  
+			text interest.imagen_url+"\n", :color => "4d4d4d"  
 			transparent(0.5) {}
 		end
 		
