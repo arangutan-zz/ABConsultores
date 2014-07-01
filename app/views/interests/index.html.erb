@@ -19,21 +19,23 @@
       <th>Tema</th>
       <th>Informacion</th>
       <th>Stakeholder</th>
+      <th>Archivo</th>
+      <th>PDF</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @empresas.each do |empresa| %>
+    <% @interests.each do |interest| %>
       <tr>
-        <td><%= image_tag empresa.imagen_url , class: 'imagen' %></td>
-        <td><%= empresa.nombre_comercial %></td>
-        <td><%= empresa.razon_social %></td>
-        <td><%= empresa.nit %></td>
-        <td><%= empresa.representante_legal %></td>
-        <td><%= empresa.created_at.to_s %></td>
-        <td><%= link_to 'Ver', '/empresas/'+empresa.id.to_s+'.pdf' , target: "_blank" %></td>
-        <td><%= link_to 'Editar', edit_empresa_path(empresa) %></td>
-        <td><%= link_to 'Eliminar', empresa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= interest.tema %></td>
+        <td><%= interest.informacion %></td>
+        <td><%= interest.stakeholder.nombre %></td>
+        <td><%= link_to 'Archivo', interest.imagen_url  %></td>
+        <td><%= link_to 'Pdf', '/interests/'+interest.id.to_s+'.pdf' , target: '_blank'%></td>
+        <td><%= link_to 'Edit', edit_interest_path(interest) %></td>
+        <td><%= link_to 'Destroy', interest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
