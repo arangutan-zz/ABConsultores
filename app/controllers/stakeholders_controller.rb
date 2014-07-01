@@ -13,7 +13,7 @@ class StakeholdersController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf  do
-        pdf = StakeholderPdf.new(@stakeholder, current_user)
+        pdf = StakeholderPdf.new(@stakeholder, current_user, :top_margin => 0)
         send_data pdf.render, filename: "prueba.pdf",
                               type: "application/pdf",
                               disposition: "inline"
