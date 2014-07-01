@@ -10,38 +10,45 @@
     <%= link_to (image_tag 'imprimir2.png'), '/compromises.pdf' , target: '_blank'%>
     
   </div>
+
+  <hr class="linea">
+
 </div>
-<hr class="linea">
-<table id="buscar" cellspacing="0" width="100%">
-  <thead class="head-tabla">
-    <tr>
-      <th>Fecha inicial</th>
-      <th>Correo</th>
-      <th>Fecha limite</th>
-      <th>Compromisos</th>
-      <th>Stakeholder</th>
-      <th>PDF</th>
-      <th>EDIT</th>
-      <th>Elimniar</th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @compromises.each do |compromise| %>
-      <tr>
-        <td><%= compromise.fecha_inicial %></td>
-        <td><%= compromise.correo %></td>
-        <td><%= compromise.fecha_limite %></td>
-        <td><%= compromise.compromisos %></td>
-        <td><%= compromise.stakeholder.nombre %></td>
-        <td><%= link_to 'pdf', '/compromises/'+compromise.id.to_s+'.pdf', target: '_blank' %></td>
-        <td><%= link_to 'Edit', edit_compromise_path(compromise) %></td>
-        <td><%= link_to 'Destroy', compromise, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
+<div class="row">
+  <div class="large-12 column">
+    <table id="buscar" cellspacing="0" width="100%">
+      <thead class="head-tabla">
+        <tr>
+          <th>Fecha inicial</th>
+          <th>Correo</th>
+          <th>Fecha limite</th>
+          <th>Compromisos</th>
+          <th>Stakeholder</th>
+          <th>PDF</th>
+          <th>EDIT</th>
+          <th>Elimniar</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @compromises.each do |compromise| %>
+          <tr>
+            <td><%= compromise.fecha_inicial %></td>
+            <td><%= compromise.correo %></td>
+            <td><%= compromise.fecha_limite %></td>
+            <td><%= compromise.compromisos %></td>
+            <td><%= compromise.stakeholder.nombre %></td>
+            <td><%= link_to 'pdf', '/compromises/'+compromise.id.to_s+'.pdf', target: '_blank' %></td>
+            <td><%= link_to 'Edit', edit_compromise_path(compromise) %></td>
+            <td><%= link_to 'Destroy', compromise, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 <br>
 <br>

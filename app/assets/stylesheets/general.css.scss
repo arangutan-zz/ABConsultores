@@ -41,15 +41,12 @@ body{
 .imagen_empresa{
 	width: 100%;
 	height: 245px;
-	padding: 20px;
 
 	.abrir_menu{
 		cursor: pointer;
 	}
 
 }
-
-
 
 
 /*Table*/
@@ -106,4 +103,12 @@ body{
 			color: white;
 		}
 	}
+}
+
+/*Overflow foundation*/
+
+
+.row .row{
+	margin-left: 0;
+	margin-right: 0;
 }
