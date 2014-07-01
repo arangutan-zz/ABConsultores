@@ -1,6 +1,18 @@
-<h1>Listing compromises</h1>
-
-<table>
+<div class="row">
+  <div class="large-6 column">
+    <h2 class="azul">
+      COMPROMISOS
+    </h2>      
+  </div>
+  <div class="large-6 column text-right">
+    <%= link_to (image_tag 'crear_nuevo2.png'), new_compromise_path %>
+    &nbsp;&nbsp;&nbsp;
+    <%= link_to (image_tag 'imprimir2.png'), '/compromises.pdf' , target: '_blank'%>
+    
+  </div>
+</div>
+<hr class="linea">
+<table id="buscar" cellspacing="0" width="100%">
   <thead>
     <tr>
       <th>Fecha inicial</th>
@@ -8,7 +20,9 @@
       <th>Fecha limite</th>
       <th>Compromisos</th>
       <th>Stakeholder</th>
-      <th colspan="3"></th>
+      <th>PDF</th>
+      <th>EDIT</th>
+      <th>Elimniar</th>
     </tr>
   </thead>
 
@@ -28,8 +42,22 @@
   </tbody>
 </table>
 
+
 <br>
 
-<%= link_to 'New Compromise', new_compromise_path %>
+
 <br>
-<%= link_to 'Pdf', '/compromises.pdf' , target: '_blank'%>
+
+
+<script type="text/javascript" >
+  $(document).ready(function(){
+    $('#buscar').dataTable({
+      "paging":   false,
+        "info":     false
+    });
+  });
+</script>
+
+
+
+

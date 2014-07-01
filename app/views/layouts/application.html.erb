@@ -7,20 +7,27 @@
     <title><%= content_for?(:title) ? yield(:title) : "ABconsultores" %></title>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/plug-ins/be7019ee387/integration/foundation/dataTables.foundation.css">
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-  	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
+    
     
     <div class="row">
-    	<% if user_signed_in? %>
-    	<%= render 'layouts/menu' %>
+      
+
+      <% if user_signed_in? %>
+        <%= render 'layouts/menu' %>
+        <%= render 'layouts/imagen_empresa' %>
     	<% end %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
     	<%= yield %>
     </div>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+    
   </body>
 </html>
