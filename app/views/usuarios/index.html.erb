@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="large-6 column">
+    <h2 class="azul">
+      USUARIOS
+    </h2>      
+  </div>
+  <div class="large-6 column text-right">
+    <%= link_to (image_tag 'crear_nuevo2.png'), usuarios_new_path %>   
+  </div>
+</div>
+<hr class="linea">
+
+<table id="buscar" cellspacing="0" width="100%">
+  <thead class="head-tabla">
+    <tr>
+      <th>Usuario</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Cargo</th>
+      <th>Rol</th>
+      <th>Ver</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @usuarios.each do |user| %>
+      <tr>
+        <td><%= user.username %></td>
+        <td><%= user.nombre %></td>
+        <td><%= user.apellido %></td>
+        <td><%= user.cargo %></td>
+        <td><%= user.rol %></td>
+        <td><%= link_to (image_tag 'imprimir_pequeno.png'), '/usuarios/'+user.id.to_s+'.pdf' , target: '_blank' %></td>
+        <td><%= link_to (image_tag 'editar_1.png'), usuarios_edit_path(user) %></td>
+        <td><%= link_to (image_tag 'eliminar_1.png'), user.id.to_s, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<br>
+<br>
+<br>
+
+<hr class="linea">
+
+<script type="text/javascript" >
+  $(document).ready(function(){
+    $('#buscar').dataTable({
+      "paging":   false,
+        "info":     false
+    });
+  });
+</script>

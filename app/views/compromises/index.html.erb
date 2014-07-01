@@ -15,7 +15,6 @@
 
 </div>
 
-
 <div class="row">
   <div class="large-12 column">
     <table id="buscar" cellspacing="0" width="100%">
@@ -40,9 +39,9 @@
             <td><%= compromise.fecha_limite %></td>
             <td><%= compromise.compromisos %></td>
             <td><%= compromise.stakeholder.nombre %></td>
-            <td><%= link_to 'pdf', '/compromises/'+compromise.id.to_s+'.pdf', target: '_blank' %></td>
-            <td><%= link_to 'Edit', edit_compromise_path(compromise) %></td>
-            <td><%= link_to 'Destroy', compromise, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to (image_tag 'imprimir_pequeno.png'), '/compromises/'+compromise.id.to_s+'.pdf', target: '_blank' %></td>
+            <td><%= link_to (image_tag 'editar_1.png'), edit_compromise_path(compromise) %></td>
+            <td><%= link_to (image_tag 'eliminar_1.png'), compromise, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>

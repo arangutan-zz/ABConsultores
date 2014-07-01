@@ -11,22 +11,22 @@
     </div>
   <% end %>
 
-<div class="row">
-  <div class="large-4 columns">
-    <input type="checkbox"> &nbsp;Habilitado<br>
-      <% if @empresa.imagen_url %>
-        <div class="roundLabel">
-          <%= image_tag @empresa.imagen_url, class: 'imagen' %>  
-        </div>
-      <% else %>
-        <div class="roundLabel">
-          <%= image_tag 'seleccione_imagen.png' %>
-          <%= f.label :imagen %><br>
-          <%= f.file_field :imagen %>
-        </div>
-      <% end %> 
+  <div class="row">
+    <div class="large-4 columns">
+      <input type="checkbox"> &nbsp;Habilitado<br>
+        <% if @empresa.imagen_url %>
+          <div class="roundLabel">
+            <%= image_tag @empresa.imagen_url, class: 'imagen' %>  
+          </div>
+        <% else %>
+          <div class="roundLabel">
+            <%= image_tag 'seleccione_imagen.png' %>
+            <%= f.label :imagen %><br>
+            <%= f.file_field :imagen %>
+          </div>
+        <% end %> 
       
-  </div>
+    </div>
 
   <div class="large-8 columns">
     <div class="large-5 columns">

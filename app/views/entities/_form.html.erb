@@ -11,11 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nombre %><br>
-    <%= f.text_field :nombre %>
+
+  <div class="row">
+    <div class="field">
+      <%= f.label :nombre %><br>
+      <%= f.text_field :nombre %>
+    </div>  
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  
+  <div class="row">
+    <div class="large-12 column text-center">
+      <%= link_to 'Atras', entities_path ,class: 'button verde-bg'  %>
+      &nbsp;
+      <%= f.submit 'Guardar' , class: 'button verde-bg' %>  
+    </div>
   </div>
 <% end %>

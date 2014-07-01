@@ -11,27 +11,53 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :tema %><br>
-    <%= f.text_field :tema %>
+
+  <div class="row">
+    <div class="large-4 columns">
+      <div class="field">
+        <%= f.label :fecha %><br>
+        <div class="row">
+      <%= f.date_select :fecha ,{ start_year: Date.current.year,end_year: Date.current.year+10, use_month_names: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre']} ,class: 'large-4 small-4 column' %>
+      </div>
+      </div>
+    </div>
+    <div class="large-4 columns">
+      <div class="field">
+        <%= f.label :tema %><br>
+        <%= f.text_field :tema %>
+      </div>      
+    </div>
+    <div class="large-4 columns">
+      <div class="field">
+        <%= f.label :stakeholder_id %><br>
+        <%= collection_select(:metting, :stakeholder_id, current_user.empresa.stakeholders.all.uniq!, :id, :nombre_completo,{prompt: 'Seleciona el stakeholder'} , required: '')%>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :fecha %><br>
-    <%= f.date_select :fecha ,{ start_year: Date.current.year,end_year: Date.current.year+10, use_month_names: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre']}%>
+
+  <div class="row">
+    <div class="large-12 column">
+      <div class="titulo-editar text-center">
+        <h5 class="blanco">Asistentes</h5>
+      </div>
+      <%= text_area( :metting , :asistentes , size: "10x10") %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :asistentes %><br>
-    <%= f.text_field :asistentes %>
+
+  <div class="row">
+    <div class="large-12 column">
+      <div class="titulo-editar text-center">
+        <h5 class="blanco">Resumen</h5>
+      </div>
+      <%= text_area( :metting , :resumen , size: "10x10") %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :resumen %><br>
-    <%= f.text_field :resumen %>
-  </div>
-  <div class="field">
-    <%= f.label :stakeholder_id %><br>
-    <%= collection_select(:metting, :stakeholder_id, current_user.empresa.stakeholders.all.uniq!, :id, :nombre_completo,{prompt: 'Seleciona el stakeholder'} , required: '')%>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="row">
+    <div class="large-12 column text-center">
+      <%= link_to 'Atras', mettings_path ,class: 'button verde-bg'  %>
+      &nbsp;
+      <%= f.submit 'Guardar' , class: 'button verde-bg' %>  
+    </div>
   </div>
 <% end %>

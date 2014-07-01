@@ -33,9 +33,9 @@
         <td><%= interest.informacion %></td>
         <td><%= interest.stakeholder.nombre %></td>
         <td><%= link_to 'Archivo', interest.imagen_url  %></td>
-        <td><%= link_to 'Pdf', '/interests/'+interest.id.to_s+'.pdf' , target: '_blank'%></td>
-        <td><%= link_to 'Edit', edit_interest_path(interest) %></td>
-        <td><%= link_to 'Destroy', interest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to (image_tag 'imprimir_pequeno.png'), '/interests/'+interest.id.to_s+'.pdf' , target: '_blank'%></td>
+        <td><%= link_to (image_tag 'editar_1.png'), edit_interest_path(interest) %></td>
+        <td><%= link_to (image_tag 'eliminar_1.png'), interest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

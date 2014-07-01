@@ -11,23 +11,45 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :tema %><br>
-    <%= f.text_field :tema %>
+
+  <div class="row">
+    <div class="large-6 columns">
+      <div class="field">
+        <%= f.label :tema %><br>
+        <%= f.text_field :tema %>
+      </div>
+    </div>
+    <div class="large-6 columns">
+      <div class="field">
+        <%= f.label :stakeholder_id %><br>
+        <%= collection_select(:interest, :stakeholder_id, current_user.empresa.stakeholders.all.uniq!, :id, :nombre_completo,{prompt: 'Seleciona el stakeholder'} , required: '')%>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :informacion %><br>
-    <%= f.text_field :informacion %>
+
+  <div class="row">
+    <div class="large-12 column">
+      <div class="titulo-editar text-center">
+        <h5 class="blanco">Información de interés</h5>
+      </div>
+      <%= text_area( :interest , :informacion , size: "10x10") %>
+    </div>
+  </div>  
+
+  <div class="row">
+    <div class="large-12 columns">
+      <div class="field">
+        <%= f.label :imagen %><br>
+        <%= f.file_field :imagen %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :imagen %><br>
-    <%= f.file_field :imagen %>
-  </div>
-  <div class="field">
-    <%= f.label :stakeholder_id %><br>
-    <%= collection_select(:interest, :stakeholder_id, current_user.empresa.stakeholders.all.uniq!, :id, :nombre_completo,{prompt: 'Seleciona el stakeholder'} , required: '')%>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="row">
+    <div class="large-12 column text-center">
+      <%= link_to 'Atras', interests_path ,class: 'button verde-bg'  %>
+      &nbsp;
+      <%= f.submit 'Guardar' , class: 'button verde-bg' %>  
+    </div>
   </div>
 <% end %>
