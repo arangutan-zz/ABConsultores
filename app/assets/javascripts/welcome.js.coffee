@@ -9,9 +9,9 @@
 #        "info":     false
 #	)
 
-$(document).ready ->
-	$('.abrir_menu').on 'click', ->
-			$('.menu_general').show()
+$(document).on 'ready page:load', ->
+	$('body').on 'click','.cerrar_menu', ->
+		$('.menu_general').hide()
 
-	$('.cerrar_menu').on 'click', ->
-			$('.menu_general').hide()
+	$('body').on 'click','.abrir_menu', ->
+		$('.menu_general').show()
