@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 
-$ ->
+$(document).on 'ready page:load', ->
 	$('#change_password').on 'click', ->
 		
 		if $(@).hasClass('abierto') 

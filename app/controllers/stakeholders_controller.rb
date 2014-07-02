@@ -60,6 +60,10 @@ class StakeholdersController < ApplicationController
     end
   end
 
+  def vista1
+    
+  end
+
   # DELETE /stakeholders/1
   # DELETE /stakeholders/1.json
   def destroy

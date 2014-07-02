@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 
   get 'usuarios/:id/edit' , to: 'usuarios#edit' , as: 'usuarios/edit'
 
+  get 'usuarios/:id/actualizar_password' , to: 'usuarios#actualizar_password' , as: 'usuarios/actualizar_password'
+
+  patch 'usuarios/:id/update_password', to: 'usuarios#update_password', as: 'usuarios/update_password'
+
   delete 'usuarios/:id', to: 'usuarios#destroy' , as: 'usuarios/destroy'
 
   get 'usuarios/:id', to: 'usuarios#show', as: 'usuarios/show'
@@ -54,6 +58,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   devise_for :users
+
   resources :empresas
 
   # The priority is based upon order of creation: first created -> highest priority.
