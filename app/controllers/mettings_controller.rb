@@ -4,7 +4,15 @@ class MettingsController < ApplicationController
   # GET /mettings
   # GET /mettings.json
   def index
-    @mettings = Metting.all
+    #@mettings = Metting.all
+
+    @mettings = Array.new
+
+    current_user.empresa.stakeholders.all.each do |stakeholder|
+      if stakeholder.mettings.count > 0
+        @mettings = @mettings + stakeholder.mettings 
+      end
+    end
 
     respond_to do |format|
       format.html
@@ -49,7 +57,7 @@ class MettingsController < ApplicationController
 
     respond_to do |format|
       if @metting.save
-        format.html { redirect_to @metting, notice: 'Metting was successfully created.' }
+        format.html { redirect_to mettings_url, notice: 'La reunion se creo correctamente' }
         format.json { render :show, status: :created, location: @metting }
       else
         format.html { render :new }
@@ -63,7 +71,7 @@ class MettingsController < ApplicationController
   def update
     respond_to do |format|
       if @metting.update(metting_params)
-        format.html { redirect_to @metting, notice: 'Metting was successfully updated.' }
+        format.html { redirect_to mettings_url, notice: 'La reunion se actualizo correctamente' }
         format.json { render :show, status: :ok, location: @metting }
       else
         format.html { render :edit }
@@ -77,7 +85,7 @@ class MettingsController < ApplicationController
   def destroy
     @metting.destroy
     respond_to do |format|
-      format.html { redirect_to mettings_url, notice: 'Metting was successfully destroyed.' }
+      format.html { redirect_to mettings_url, notice: 'La reunion se elimino correctamente' }
       format.json { head :no_content }
     end
   end

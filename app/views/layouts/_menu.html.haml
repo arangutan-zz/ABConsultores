@@ -20,7 +20,7 @@
 		%li
 			= link_to 'TEMAS REGULATORIOS', temasregulatorios_path
 		%li
-			= link_to 'CAMBIAR CONTRASEÑA', '#'
+			= link_to 'CAMBIAR CONTRASEÑA', usuarios_actualizar_password_path(current_user)
 		%li
 			= link_to 'SALIR', destroy_user_session_path, method: :delete
 
