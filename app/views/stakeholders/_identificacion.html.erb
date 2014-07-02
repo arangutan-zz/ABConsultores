@@ -11,71 +11,119 @@
     </div>
   <% end %>
 
+  <div class="row">
+    <div class="large-4 columns">
+        <% if @stakeholder.imagen_url %>
+          <div class="roundLabel">
+            <%= image_tag @stakeholder.imagen_url, class: 'imagen' %>  
+          </div>
+        <% else %>
+          <div class="roundLabel">
+            <%= image_tag 'seleccione_imagen.png' %>
+            <%= f.label :imagen %><br>
+            <%= f.file_field :imagen %>
+          </div>
+        <% end %> 
+      
+    </div>
+    <div class="large-8 columns">
+      <div class="row">
+        <div class="large-6 columns">
+           <div class="field">
+              <%= f.label :nombre %><br>
+              <%= f.text_field :nombre %>
+            </div>
+        </div>
+        <div class="large-6 columns">
+          <div class="field">
+            <%= f.label :apellido %><br>
+            <%= f.text_field :apellido %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-6 columns">
+            <div class="field">
+              <%= f.label :entidad %><br>
+              <%= f.text_field :entidad %>
+            </div>
+        </div>
+        <div class="large-6 columns">
+          <div class="field">
+            <%= f.label 'Tipo de Entidad' %><br>
+            <%= collection_select(:stakeholder, :entity_id, Entity.all, :id, :nombre,{prompt: 'Seleciona la entidad'} , required: '')%>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-6 columns">
+            <div class="field">
+              <%= f.label :cargo %><br>
+              <%= f.text_field :cargo %>
+            </div>
+        </div>
+        <div class="large-6 columns">
+          <div class="field">
+            <%= f.label :movimiento_politico %><br>
+            <%= f.text_field :movimiento_politico %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   
-  
-  <div class="field">
-    <%= f.label :imagen %><br>
-    <%= f.file_field :imagen %>
+  <div class="row">
+    <div class="large-4 columns">
+      <div class="field">
+        <%= f.label :pais %><br>
+        <%= f.text_field :pais %>
+      </div>
+    </div>
+    <div class="large-4 columns">
+       <div class="field">
+        <%= f.label :departamento %><br>
+        <%= f.text_field :departamento %>
+      </div> 
+    </div>
+    <div class="large-4 columns">
+        <div class="field">
+          <%= f.label :ciudad %><br>
+          <%= f.text_field :ciudad %>
+        </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :nombre %><br>
-    <%= f.text_field :nombre %>
-  </div>
-  <div class="field">
-    <%= f.label :apellido %><br>
-    <%= f.text_field :apellido %>
-  </div>
+  <br><br>
+<hr class="linea">
+ 
 
-  <div class="field">
-    <%= f.label :entidad %><br>
-    <%= f.text_field :entidad %>
-  </div>
-
-    <div class="field">
-    <%= f.label 'Tipo de Entidad' %><br>
-    <%= collection_select(:stakeholder, :entity_id, Entity.all, :id, :nombre,{prompt: 'Seleciona la entidad'} , required: '')%>
-  </div>
-
-  <div class="field">
-    <%= f.label :cargo %><br>
-    <%= f.text_field :cargo %>
-  </div>
-
-  <div class="field">
-    <%= f.label :movimiento_politico %><br>
-    <%= f.text_field :movimiento_politico %>
-  </div>
-
-  <div class="field">
-    <%= f.label :pais %><br>
-    <%= f.text_field :pais %>
-  </div>
-  <div class="field">
-    <%= f.label :departamento %><br>
-    <%= f.text_field :departamento %>
-  </div>
-  <div class="field">
-    <%= f.label :ciudad %><br>
-    <%= f.text_field :ciudad %>
-  </div>
-  <div class="field">
-    <%= f.label :impacto %><br>
-    <%= f.text_field :impacto %>
-  </div>
-  <div class="field">
-    <%= f.label :perfil %><br>
-    <%= f.text_field :perfil %>
-  </div> 
-
+    <div class="row">
+      <div class="large-4 columns">
+        <div class="field">
+          <%= f.label :impacto %><br>
+          <%= f.text_field :impacto %>
+        </div>
+      </div>
+      <div class="large-8 columns">
+        <%= f.label :perfil %><br>
+        <%= text_area( :stakeholder , :perfil , size: "10x10") %>
+      </div>
+    </div>
 
   <% if  @stakeholder.empresa_id %>
     <%= hidden_field_tag 'stakeholder[empresa_id]', @stakeholder.empresa_id %>
   <% else %>
     <%= hidden_field_tag 'stakeholder[empresa_id]', current_user.empresa.id %>
   <% end %>
-
-  
-  <div class="actions">
-    <%= f.submit %>
+  <br><br>
+<hr class="linea">
+    <br><br>  
+  <div class="row">
+    <div class="large-12 column text-center">
+      <%= link_to 'Atras', stakeholders_path ,class: 'button verde-bg'  %>
+      &nbsp;
+      <%= f.submit 'Siguiente' , class: 'button verde-bg' %>  
+    </div>
   </div>
+
 <% end %>

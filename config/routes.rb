@@ -19,6 +19,15 @@ Rails.application.routes.draw do
 
   get 'usuarios/:id', to: 'usuarios#show', as: 'usuarios/show'
 
+  get 'stakeholders/:id/clasificacion', to: 'stakeholders#clasificacion',  as: 'stakeholders/clasificacion'
+
+  patch 'stakeholders/:id/influencia', to: 'stakeholders#influencia',  as: 'stakeholders/influencia'
+
+  get 'stakeholders/:id/influenciaview', to: 'stakeholders#influenciaview', as: 'stakeholders/influenciaview'
+
+  patch 'stakeholders/:id/guardarinfluencia', to: 'stakeholders#guardarinfluencia', as: 'stakeholders/guardarinfluencia'
+
+
   # get 'users/new'
 
   # post 'users' , to:  'users#create' , as: 'users'

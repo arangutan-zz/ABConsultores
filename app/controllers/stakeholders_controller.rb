@@ -1,5 +1,5 @@
 class StakeholdersController < ApplicationController
-  before_action :set_stakeholder, only: [:show, :edit, :update, :destroy]
+  before_action :set_stakeholder, only: [:show, :edit, :update, :destroy,:clasificacion,:influencia, :influenciaview, :guardarinfluencia]
 
   # GET /stakeholders
   # GET /stakeholders.json
@@ -37,7 +37,7 @@ class StakeholdersController < ApplicationController
 
     respond_to do |format|
       if @stakeholder.save
-        format.html { redirect_to @stakeholder, notice: 'El stakeholder se creo correctamente' }
+        format.html { redirect_to stakeholders_clasificacion_path(@stakeholder), notice: 'El stakeholder se creo correctamente' }
         format.json { render :show, status: :created, location: @stakeholder }
       else
         format.html { render :new }
@@ -51,7 +51,7 @@ class StakeholdersController < ApplicationController
   def update
     respond_to do |format|
       if @stakeholder.update(stakeholder_params)
-        format.html { redirect_to @stakeholder, notice: 'El stakeholder se actualizo correctamente' }
+        format.html { redirect_to stakeholders_clasificacion_path(@stakeholder), notice: 'El stakeholder se actualizo correctamente' }
         format.json { render :show, status: :ok, location: @stakeholder }
       else
         format.html { render :edit }
@@ -60,10 +60,37 @@ class StakeholdersController < ApplicationController
     end
   end
 
-  def vista1
+  def clasificacion
     
   end
 
+  def influencia
+    respond_to do |format|
+      if @stakeholder.update(stakeholder_params)
+        format.html { redirect_to stakeholders_influenciaview_path(@stakeholder), notice: 'El stakeholder se actualizo correctamente' }
+        format.json { render :show, status: :ok, location: @stakeholder }
+      else
+        format.html { render :edit }
+        format.json { render json: @stakeholder.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def influenciaview
+
+  end
+
+  def guardarinfluencia
+    respond_to do |format|
+      if @stakeholder.update(stakeholder_params)
+        format.html { redirect_to stakeholders_path, notice: 'El stakeholder se actualizo correctamente' }
+        format.json { render :show, status: :ok, location: @stakeholder }
+      else
+        format.html { render :edit }
+        format.json { render json: @stakeholder.errors, status: :unprocessable_entity }
+      end
+    end
+  end
   # DELETE /stakeholders/1
   # DELETE /stakeholders/1.json
   def destroy
