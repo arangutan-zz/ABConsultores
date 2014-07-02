@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+  
+  
   <div class="field">
     <%= f.label :imagen %><br>
     <%= f.file_field :imagen %>
@@ -23,14 +25,27 @@
     <%= f.label :apellido %><br>
     <%= f.text_field :apellido %>
   </div>
+
+  <div class="field">
+    <%= f.label :entidad %><br>
+    <%= f.text_field :entidad %>
+  </div>
+
+    <div class="field">
+    <%= f.label 'Tipo de Entidad' %><br>
+    <%= collection_select(:stakeholder, :entity_id, Entity.all, :id, :nombre,{prompt: 'Seleciona la entidad'} , required: '')%>
+  </div>
+
   <div class="field">
     <%= f.label :cargo %><br>
     <%= f.text_field :cargo %>
   </div>
+
   <div class="field">
     <%= f.label :movimiento_politico %><br>
     <%= f.text_field :movimiento_politico %>
   </div>
+
   <div class="field">
     <%= f.label :pais %><br>
     <%= f.text_field :pais %>
@@ -50,43 +65,9 @@
   <div class="field">
     <%= f.label :perfil %><br>
     <%= f.text_field :perfil %>
-  </div>
-  <div class="field">
-    <%= f.label :disposicion %><br>
-    <%= f.text_field :disposicion %>
-  </div>
-  <div class="field">
-    <%= f.label :expectativas %><br>
-    <%= f.text_field :expectativas %>
-  </div>
-  <div class="field">
-    <%= f.label :dimension %><br>
-    <%= f.text_field :dimension %>
-  </div>
-  <div class="field">
-    <%= f.label :dependencia %><br>
-    <%= f.text_field :dependencia %>
-  </div>
-  <div class="field">
-    <%= f.label :necesidades_logro %><br>
-    <%= f.text_field :necesidades_logro %>
-  </div>
-  <div class="field">
-    <%= f.label :necesidades_poder %><br>
-    <%= f.text_field :necesidades_poder %>
-  </div>
-  <div class="field">
-    <%= f.label :necesidades_afiliacion %><br>
-    <%= f.text_field :necesidades_afiliacion %>
-  </div>
-  <div class="field">
-    <%= f.label :entidad %><br>
-    <%= f.text_field :entidad %>
-  </div>
-  <div class="field">
-    <%= f.label 'Tipo de Entidad' %><br>
-    <%= collection_select(:stakeholder, :entity_id, Entity.all, :id, :nombre,{prompt: 'Seleciona la entidad'} , required: '')%>
-  </div>
+  </div> 
+
+
   <% if  @stakeholder.empresa_id %>
     <%= hidden_field_tag 'stakeholder[empresa_id]', @stakeholder.empresa_id %>
   <% else %>
