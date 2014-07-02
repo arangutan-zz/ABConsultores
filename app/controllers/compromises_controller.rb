@@ -4,7 +4,16 @@ class CompromisesController < ApplicationController
   # GET /compromises
   # GET /compromises.json
   def index
-    @compromises = Compromise.all
+    #@compromises = Compromise.all
+
+
+    @compromises = Array.new
+
+    current_user.empresa.stakeholders.all.each do |stakeholder|
+      if stakeholder.compromises.count > 0
+        @compromises = @compromises + stakeholder.compromises 
+      end
+    end
 
 
     respond_to do |format|

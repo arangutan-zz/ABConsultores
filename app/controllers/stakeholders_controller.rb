@@ -4,7 +4,7 @@ class StakeholdersController < ApplicationController
   # GET /stakeholders
   # GET /stakeholders.json
   def index
-    @stakeholders = Stakeholder.all
+    @stakeholders = current_user.empresa.stakeholders.all
   end
 
   # GET /stakeholders/1
@@ -37,7 +37,7 @@ class StakeholdersController < ApplicationController
 
     respond_to do |format|
       if @stakeholder.save
-        format.html { redirect_to @stakeholder, notice: 'Stakeholder was successfully created.' }
+        format.html { redirect_to @stakeholder, notice: 'El stakeholder se creo correctamente' }
         format.json { render :show, status: :created, location: @stakeholder }
       else
         format.html { render :new }
@@ -51,7 +51,7 @@ class StakeholdersController < ApplicationController
   def update
     respond_to do |format|
       if @stakeholder.update(stakeholder_params)
-        format.html { redirect_to @stakeholder, notice: 'Stakeholder was successfully updated.' }
+        format.html { redirect_to @stakeholder, notice: 'El stakeholder se actualizo correctamente' }
         format.json { render :show, status: :ok, location: @stakeholder }
       else
         format.html { render :edit }
@@ -65,7 +65,7 @@ class StakeholdersController < ApplicationController
   def destroy
     @stakeholder.destroy
     respond_to do |format|
-      format.html { redirect_to stakeholders_url, notice: 'Stakeholder was successfully destroyed.' }
+      format.html { redirect_to stakeholders_url, notice: 'El stakeholder se elimino correctamente' }
       format.json { head :no_content }
     end
   end

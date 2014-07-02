@@ -4,7 +4,16 @@ class TemasregulatoriosController < ApplicationController
   # GET /temasregulatorios
   # GET /temasregulatorios.json
   def index
-    @temasregulatorios = Temasregulatorio.all
+    #@temasregulatorios = Temasregulatorio.all
+
+
+    @temasregulatorios = Array.new
+
+    current_user.empresa.stakeholders.all.each do |stakeholder|
+      if stakeholder.temasregulatorios.count > 0
+        @temasregulatorios = @temasregulatorios + stakeholder.temasregulatorios 
+      end
+    end
 
     respond_to do |format|
       format.html
@@ -47,7 +56,7 @@ class TemasregulatoriosController < ApplicationController
 
     respond_to do |format|
       if @temasregulatorio.save
-        format.html { redirect_to @temasregulatorio, notice: 'Temasregulatorio was successfully created.' }
+        format.html { redirect_to temasregulatorios_url, notice: 'El tema regulatorio fue creado satisfactoriamente.' }
         format.json { render :show, status: :created, location: @temasregulatorio }
       else
         format.html { render :new }
@@ -61,7 +70,7 @@ class TemasregulatoriosController < ApplicationController
   def update
     respond_to do |format|
       if @temasregulatorio.update(temasregulatorio_params)
-        format.html { redirect_to @temasregulatorio, notice: 'Temasregulatorio was successfully updated.' }
+        format.html { redirect_to temasregulatorios_url, notice: 'El tema regulatorio fue actualizado satisfactoriamente.' }
         format.json { render :show, status: :ok, location: @temasregulatorio }
       else
         format.html { render :edit }
@@ -75,7 +84,7 @@ class TemasregulatoriosController < ApplicationController
   def destroy
     @temasregulatorio.destroy
     respond_to do |format|
-      format.html { redirect_to temasregulatorios_url, notice: 'Temasregulatorio was successfully destroyed.' }
+      format.html { redirect_to temasregulatorios_url, notice: 'El tema regulatorio fue eliminado satisfactoriamente.' }
       format.json { head :no_content }
     end
   end
