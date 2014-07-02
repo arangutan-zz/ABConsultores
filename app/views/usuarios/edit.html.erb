@@ -1,6 +1,9 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
-
+<div class="row">
+  <div class="large-12 column">
+    <h4 class="text-center">EDITANDO USUARIO</h4>
+  </div>
+</div>
+<hr class="linea">
 <%= form_for @user, url: usuarios_update_path(@user), html: { method: :put } do |f| %>
   <div class="campos_editar_usuario">
     <div class="field">
@@ -40,15 +43,19 @@
       <%= f.text_field :username %>
     </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <p id="change_password">Cambiar la  contraseñas</p>
+  <div class="row">
+    <div class="large-12 column text-center">
+      <%= link_to 'Atras', '/usuarios/index' ,class: 'button verde-bg'  %>
+      &nbsp;
+      <%= f.submit 'Guardar' , class: 'button verde-bg' %>  
+    </div>
   </div>
+
 <% end %>
 
 <br>
 
-<p id="change_password">Cambiar la  contraseñas</p>
 
 
-<%= link_to 'Back', '/usuarios/index' %>
 
