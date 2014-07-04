@@ -1,11 +1,18 @@
 class StakeholdersController < ApplicationController
-  before_action :set_stakeholder, only: [:show, :edit, :update, :destroy,:clasificacion,:influencia, :influenciaview, :guardarinfluencia]
+  before_action :set_stakeholder, only: [:show, :edit, :update, :destroy,:clasificacion,:influencia, :influenciaview, :guardarinfluencia ,:relevancesuser]
 
   # GET /stakeholders
   # GET /stakeholders.json
   def index
     @stakeholders = current_user.empresa.stakeholders.all
   end
+
+  # GET /stakeholders/1/relevances
+  
+  def relevancesuser
+    @stakeholder.relevances
+  end
+
 
   # GET /stakeholders/1
   # GET /stakeholders/1.json
@@ -81,8 +88,9 @@ class StakeholdersController < ApplicationController
   end
 
   def guardarinfluencia
+    binding.pry
     respond_to do |format|
-      if @stakeholder.update(stakeholder_params)
+      if 1 == 1 #@stakeholder.update(stakeholder_params)
         format.html { redirect_to stakeholders_path, notice: 'El stakeholder se actualizo correctamente' }
         format.json { render :show, status: :ok, location: @stakeholder }
       else

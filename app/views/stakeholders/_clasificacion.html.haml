@@ -10,23 +10,130 @@
 
 	.row
 		.large-4.columns
-			= f.label :diposicion
-			= f.text_field :disposicion
+			= f.label :disposicion
+			.row
+				%div{:class =>['large-12','columns','imageChecked','text-center',(@stakeholder.disposicion == 'Hostil' ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked")], :id => 'hostil'}
+					%h5.blanco
+						HOSTIL
+			.row
+				%div{:class =>['large-12','columns','imageChecked','text-center',(@stakeholder.disposicion == 'Cooperativo' ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked")], :id => 'cooperativo'}
+					%h5.blanco
+						COOPERATIVO
+			.row
+				%div{:class =>['large-12','columns','imageChecked','text-center',(@stakeholder.disposicion == 'Competitivo' ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked")], :id => 'competitivo'}
+					%h5.blanco
+						COMPETITIVO
+			.row
+				%div{:class =>['large-12','columns','imageChecked','text-center',(@stakeholder.disposicion == 'Desconocido' ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked")], :id => 'desconocido'}
+					%h5.blanco
+						DESCONOCIDO
+			.row
+				%div{:class =>['large-12','columns','imageChecked','text-center',(@stakeholder.disposicion == 'Sin interés' ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked")], :id => 'sininteres'}
+					%h5.blanco
+						SIN INTERÉS
+
+
+			-# = f.text_field :disposicion
 		.large-4.columns
 			= f.label :expectativas
-			= f.text_field :expectativas
+			.row
+				%div{:class =>['large-12','columns','imageChecked','text-center',(@stakeholder.expectativas == 'Latente' ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked")], :id => 'latente'}
+					%h5.blanco
+						LATENTE
+			.row
+				%div{:class =>['large-12','columns','imageChecked','text-center',(@stakeholder.expectativas == 'En Consolidación' ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked")], :id => 'consolidacion'}
+					%h5.blanco
+						EN CONSOLIDACIÓN
+			.row
+				%div{:class =>['large-12','columns','imageChecked','text-center',(@stakeholder.expectativas == 'Institucionalizado' ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked")], :id => 'institucionalizado'}
+					%h5.blanco
+						INSTITUCIONALIZADO
+			.row
+				%div{:class =>['large-12','columns','imageChecked','text-center',(@stakeholder.expectativas == 'Desconocido' ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked")], :id => 'desconocidoEx'}
+					%h5.blanco
+						DESCONOCIDO
+			.row
+				%div{:class =>['large-12','columns','imageChecked','text-center',(@stakeholder.expectativas == 'Emergente' ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked")], :id => 'emergente'}
+					%h5.blanco
+						EMERGENTE
 		.large-4.columns
 			= f.label :dimension
-			= f.text_field :dimension
+			.row
+				%div{:class=>['large-12','columns','imageChecked','text-center',(@stakeholder.dimension=='Por Responsabilidad' ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked")], :id=>'responsabilidad'}
+					%h5.blanco
+						POR RESPONSABILIDAD
+			.row
+				%div{:class=>['large-12','columns','imageChecked','text-center',(@stakeholder.dimension=='Por Influencia' ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked")], :id=>'influencia'}
+					%h5.blanco
+						POR INFLUENCIA
+			.row
+				%div{:class=>['large-12','columns','imageChecked','text-center',(@stakeholder.dimension=='Por Cercanía' ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked")],:id=>'cercania'}
+					%h5.blanco
+						POR CERCANÍA
+			.row
+				%div{:class=>['large-12','columns','imageChecked','text-center',(@stakeholder.dimension=='Por Dependencia' ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked")],:id=>'dependencia'}
+					%h5.blanco
+						POR DEPENDENCIA
+			.row
+				%div{:class=>['large-12','columns','imageChecked','text-center',(@stakeholder.dimension=='Por Representación' ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked")],:id=>'representacion'}
+					%h5.blanco
+						POR REPRESENTACIÓN
 
 	.row
 		.large-4.columns
 			= f.label :dependencia
-			= f.text_field :dependencia
+			.row
+				%div{:class=>['large-12','columns','imageChecked','text-center',(@stakeholder.dependencia=='Dependencia Financiera Directa' ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked")],:id=>'depdirecta'}
+					%p.blanco.dependencia
+						DEPENDENCIA FINANCIERA DIRECTA
+			.row
+				%div{:class=>['large-12','columns','imageChecked','text-center',(@stakeholder.dependencia=='Dependencia Financiera Indirecta' ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked")], :id => 'depindirecta'}
+					%p.blanco.dependencia
+						DEPENDENCIA FINANCIERA INDIRECTA
+			.row
+				%div{:class=>['large-12','columns','imageChecked','text-center',(@stakeholder.dependencia=='Con Poco o Sin Poder de Elección' ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked")], :id => 'eleccion'}
+					%p.blanco.dependencia
+						CON POCO O SIN PODER DE ELECCIÓN
+			.row
+				%div{:class=>['large-12','columns','imageChecked','text-center',(@stakeholder.dependencia=='Dependencia No Financiera' ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked")],:id=>'financiera'}
+					%p.blanco.dependencia
+						DEPENDENCIA NO FINANCIERA
 		.large-4.columns
 		.large-4.columns
 			%p
 				Historial de clasificación
+			.row.historialClasificacion
+				%br
+					%b
+						DISPOCICIÓN:
+				%span#disposicion_text
+					=@stakeholder.disposicion
+			.row.historialClasificacion
+				%br
+					%b
+						EXPECTATIVAS:
+				%span#expectativas_text
+					=@stakeholder.expectativas
+			.row.historialClasificacion
+				%br	
+					%b
+						DIMENSIÓN:
+				%span#dimension_text
+					=@stakeholder.dimension
+			.row.historialClasificacion
+				%br
+					%b
+						DEPENDENCIAS:
+				%span#dependencia_text
+					=@stakeholder.dependencia
+
+
+
+	= f.hidden_field :disposicion, value: @stakeholder.disposicion
+	= f.hidden_field :expectativas, value: @stakeholder.expectativas
+	= f.hidden_field :dimension, value: @stakeholder.dimension
+	= f.hidden_field :dependencia, value: @stakeholder.dependencia
+
 	.row
 		.large-12.columns.text-center
 			= f.submit 'Siguiente', class: 'button verde-bg'
