@@ -166,8 +166,9 @@ class StakeholderPdf < Prawn::Document
 			font "Times-Roman", :style => :bold
 			text "\nINFLUENCIA", :align => :center
 			font "Times-Roman", :style => :normal
-			text stakeholder.disposicion.upcase+"\n", :align => :center
-
+			stakeholder.influences.all.each do |relevances|
+				text relevances.nombre.upcase+"\n", :align => :center
+			end
 			transparent(0.5) {}
 		end
 
@@ -175,7 +176,9 @@ class StakeholderPdf < Prawn::Document
 			font "Times-Roman", :style => :bold
 			text "\nRELEVANCIA", :align => :center
 			font "Times-Roman", :style => :normal
-			text stakeholder.expectativas.upcase+"\n", :align => :center
+			stakeholder.relevances.all.each do |relevances|
+				text relevances.nombre.upcase+"\n", :align => :center
+			end
 			transparent(0.5) {}
 		end
 		gap=0

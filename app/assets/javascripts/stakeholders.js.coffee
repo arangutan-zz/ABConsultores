@@ -271,94 +271,26 @@ $(document).on 'ready page:load', ->
 		else
 			$(@).removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 
-	#--------------------------------------------------------------------------------------------------------#
-	#INFLUENCIA
 
-	$('#inf_cultural').on 'click', ->
-		$('#inf_economico').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		$('#inf_emotivo').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		$('#inf_politico').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_influencia').value='Cultural' ; 
-		if $(@).hasClass('botonIdentificacionUnchecked')
-			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
+	#-------------------------------------------------------------------------------------------------------------------
+	$('.relevancia-stakeholder').on 'click', ->
+		$this = $(@)
+		$id = $this.data('id')
+		if $this.hasClass('botonIdentificacionUnchecked')
+			$('.relevancecb-'+$id).prop('checked', true)
+			$this.removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
 		else
-			$(@).removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-
-	$('#inf_economico').on 'click', ->
-		$('#inf_cultural').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		$('#inf_emotivo').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		$('#inf_politico').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_influencia').value='Económico' ; 
-		if $(@).hasClass('botonIdentificacionUnchecked')
-			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
-		else
-			$(@).removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-
-	$('#inf_emotivo').on 'click', ->
-		$('#inf_economico').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		$('#inf_cultural').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		$('#inf_politico').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_influencia').value='Emotivo' ; 
-		if $(@).hasClass('botonIdentificacionUnchecked')
-			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
-		else
-			$(@).removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-
-	$('#inf_politico').on 'click', ->
-		$('#inf_economico').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		$('#inf_emotivo').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		$('#inf_cultural').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_influencia').value='Político y/o Poder' ; 
-		if $(@).hasClass('botonIdentificacionUnchecked')
-			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
-		else
-			$(@).removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-
-
-
-	#--------------------------------------------------------------------------------------------------------#
-	#RELEVANCIA
-	$('#rel_cultural').on 'click', ->
-		$('#rel_economico').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		$('#rel_emotivo').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		$('#rel_politico').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_relevancia').value='Cultural' ; 
-		if $(@).hasClass('botonIdentificacionUnchecked')
-			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
-		else
-			$(@).removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-
-	$('#rel_economico').on 'click', ->
-		$('#rel_cultural').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		$('#rel_emotivo').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		$('#rel_politico').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_relevancia').value='Económico' ; 
-		if $(@).hasClass('botonIdentificacionUnchecked')
-			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
-		else
-			$(@).removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-
-	$('#rel_emotivo').on 'click', ->
-		$('#rel_economico').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		$('#rel_cultural').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		$('#rel_politico').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_relevancia').value='Emotivo' ; 
-		if $(@).hasClass('botonIdentificacionUnchecked')
-			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
-		else
-			$(@).removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-
-	$('#rel_politico').on 'click', ->
-		$('#rel_economico').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		$('#rel_emotivo').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		$('#rel_cultural').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_relevancia').value='Político y/o Poder' ; 
-		if $(@).hasClass('botonIdentificacionUnchecked')
-			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
-		else
-			$(@).removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-
+			$('.relevancecb-'+$id).prop('checked', false)
+			$this.removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 
 
 	#-------------------------------------------------------------------------------------------------------------------
-	
+	$('.influence-stakeholder').on 'click', ->
+		$this = $(@)
+		$id = $this.data('id')
+		if $this.hasClass('botonIdentificacionUnchecked')
+			$('.influencecb-'+$id).prop('checked', true)
+			$this.removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
+		else
+			$('.influencecb-'+$id).prop('checked', false)
+			$this.removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')

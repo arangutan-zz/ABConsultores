@@ -88,9 +88,33 @@ class StakeholdersController < ApplicationController
   end
 
   def guardarinfluencia
-    binding.pry
+    
+
+    #se eliminan para tener actualiazada su influencia    
+    @stakeholder.relevancestakeholders.each do |re|
+      re.destroy
+    end
+
+    @stakeholder.influencestakeholders.each do |re|
+      re.destroy
+    end
+
+    #se agregan para tener actualiazada su influencia
+    if params[:influences]
+      params[:influences].each_key do |per|
+         Influencestakeholder.create(stakeholder_id:current_user.id,influence_id:per)
+      end
+    end
+
+    if params[:relevances]
+      params[:relevances].each_key do |per|
+         Relevancestakeholder.create(stakeholder_id:current_user.id,relevance_id:per)
+      end
+    end
+
+
     respond_to do |format|
-      if 1 == 1 #@stakeholder.update(stakeholder_params)
+      if @stakeholder.update(stakeholder_params)
         format.html { redirect_to stakeholders_path, notice: 'El stakeholder se actualizo correctamente' }
         format.json { render :show, status: :ok, location: @stakeholder }
       else

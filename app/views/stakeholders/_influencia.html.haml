@@ -13,9 +13,11 @@
 			= f.label :influencia
 			- Influence.all.each do |influ|
 				.row
-					%div{ class: ['large-12','columns','imageChecked','text-center', (@stakeholder.influences.include?(influ) ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked") ], :"data-id" => influ.id}
+					%div{ class: ['large-12','influence-stakeholder','columns','imageChecked','text-center', (@stakeholder.influences.include?(influ) ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked") ], :"data-id" => influ.id}
 						%h5.blanco
 							= influ.nombre
+				.row.hide
+					= check_box_tag("influences[#{influ.id}]",1,@stakeholder.influences.include?(influ), class: 'influencecb-'+influ.id.to_s)
 			
 		.large-4.columns
 
@@ -23,15 +25,17 @@
 			= f.label :relevancia
 			- Relevance.all.each do |rele|
 				.row
-					= check_box_tag("Relevance[#{rele.id}]",1,@stakeholder.relevances.include?(rele))
-					%label
-						= rele.nombre
-					%br	
-			-#
-				.row
-					%div{ class: ['large-12','columns','imageChecked','text-center', (@stakeholder.relevances.include?(rele) ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked") ], :"data-id" => rele.id}
+					%div{ class: ['large-12','relevancia-stakeholder','columns','imageChecked','text-center', (@stakeholder.relevances.include?(rele) ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked") ], :"data-id" => rele.id}
 						%h5.blanco
 							= rele.nombre
+				.row.hide
+					= check_box_tag("relevances[#{rele.id}]",1,@stakeholder.relevances.include?(rele), class: 'relevancecb-'+rele.id.to_s)
+	
+	%br
+	%br
+	%br
+	%br
+
 	.row
 		.row
 			.large-4.columns.titulo.text-center
