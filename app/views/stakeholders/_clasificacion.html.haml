@@ -9,7 +9,7 @@
 				= message
 
 	.row
-		.large-4.columns
+		.large-4.small-4.columns
 			= f.label :disposicion
 			.row
 				%div{:class =>['large-12','columns','imageChecked','text-center',(@stakeholder.disposicion == 'Hostil' ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked")], :id => 'hostil'}
@@ -34,7 +34,7 @@
 
 
 			-# = f.text_field :disposicion
-		.large-4.columns
+		.large-4.small-4.columns
 			= f.label :expectativas
 			.row
 				%div{:class =>['large-12','columns','imageChecked','text-center',(@stakeholder.expectativas == 'Latente' ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked")], :id => 'latente'}
@@ -56,7 +56,7 @@
 				%div{:class =>['large-12','columns','imageChecked','text-center',(@stakeholder.expectativas == 'Emergente' ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked")], :id => 'emergente'}
 					%h5.blanco
 						EMERGENTE
-		.large-4.columns
+		.large-4.small-4.columns
 			= f.label :dimension
 			.row
 				%div{:class=>['large-12','columns','imageChecked','text-center',(@stakeholder.dimension=='Por Responsabilidad' ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked")], :id=>'responsabilidad'}
@@ -80,7 +80,7 @@
 						POR REPRESENTACIÓN
 
 	.row
-		.large-4.columns
+		.large-4.small-4.columns
 			= f.label :dependencia
 			.row
 				%div{:class=>['large-12','columns','imageChecked','text-center',(@stakeholder.dependencia=='Dependencia Financiera Directa' ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked")],:id=>'depdirecta'}
@@ -98,8 +98,8 @@
 				%div{:class=>['large-12','columns','imageChecked','text-center',(@stakeholder.dependencia=='Dependencia No Financiera' ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked")],:id=>'financiera'}
 					%p.blanco.dependencia
 						DEPENDENCIA NO FINANCIERA
-		.large-4.columns
-		.large-4.columns
+		.large-4.small-4.columns
+		.large-4.small-4.columns
 			%p
 				Historial de clasificación
 			.row.historialClasificacion

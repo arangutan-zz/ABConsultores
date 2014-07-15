@@ -9,7 +9,7 @@ $(document).on 'ready page:load', ->
 	$('#alto').on 'click', ->
 		$('#medio').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#bajo').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_impacto').value='Alto' ; 
+		document.getElementById('stakeholder_impacto').value = 'Alto' ; 
 		if $(@).hasClass('botonIdentificacionUnchecked')
 			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
 		else
@@ -18,7 +18,7 @@ $(document).on 'ready page:load', ->
 	$('#medio').on 'click', ->
 		$('#alto').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#bajo').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_impacto').value='Medio' ;
+		document.getElementById('stakeholder_impacto').value = 'Medio' ;
 		if $(@).hasClass('botonIdentificacionUnchecked')
 			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
 		else
@@ -27,7 +27,7 @@ $(document).on 'ready page:load', ->
 	$('#bajo').on 'click', ->
 		$('#medio').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#alto').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_impacto').value='Bajo' ;
+		document.getElementById('stakeholder_impacto').value = 'Bajo' ;
 		$()
 		if $(@).hasClass('botonIdentificacionUnchecked')
 			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
@@ -41,8 +41,8 @@ $(document).on 'ready page:load', ->
 		$('#competitivo').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#desconocido').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#sininteres').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_disposicion').value='Hostil' ; 
-		document.getElementById('disposicion_text').innerHTML='Hostil' ; 
+		document.getElementById('stakeholder_disposicion').value = 'Hostil' ; 
+		document.getElementById('disposicion_text').innerHTML = 'Hostil' ; 
 		if $(@).hasClass('botonIdentificacionUnchecked')
 			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
 		else
@@ -53,8 +53,8 @@ $(document).on 'ready page:load', ->
 		$('#competitivo').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#desconocido').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#sininteres').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_disposicion').value='Cooperativo' ; 
-		document.getElementById('disposicion_text').innerHTML='Cooperativo' ; 
+		document.getElementById('stakeholder_disposicion').value= 'Cooperativo' ; 
+		document.getElementById('disposicion_text').innerHTML= 'Cooperativo' ; 
 		if $(@).hasClass('botonIdentificacionUnchecked')
 			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
 		else
@@ -65,8 +65,8 @@ $(document).on 'ready page:load', ->
 		$('#cooperativo').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#desconocido').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#sininteres').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_disposicion').value='Competitivo' ; 
-		document.getElementById('disposicion_text').innerHTML='Competitivo' ; 
+		document.getElementById('stakeholder_disposicion').value= 'Competitivo' ; 
+		document.getElementById('disposicion_text').innerHTML= 'Competitivo' ; 
 		if $(@).hasClass('botonIdentificacionUnchecked')
 			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
 		else
@@ -77,8 +77,8 @@ $(document).on 'ready page:load', ->
 		$('#cooperativo').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#competitivo').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#sininteres').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_disposicion').value='Desconocido' ; 
-		document.getElementById('disposicion_text').innerHTML='Desconocido' ; 
+		document.getElementById('stakeholder_disposicion').value= 'Desconocido' ; 
+		document.getElementById('disposicion_text').innerHTML= 'Desconocido' ; 
 		if $(@).hasClass('botonIdentificacionUnchecked')
 			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
 		else
@@ -89,8 +89,8 @@ $(document).on 'ready page:load', ->
 		$('#cooperativo').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#competitivo').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#desconocido').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_disposicion').value='Sin Interés' ; 
-		document.getElementById('disposicion_text').innerHTML='Sin Interés' ; 
+		document.getElementById('stakeholder_disposicion').value= 'Sin Interés' ; 
+		document.getElementById('disposicion_text').innerHTML= 'Sin Interés' ; 
 		if $(@).hasClass('botonIdentificacionUnchecked')
 			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
 		else
@@ -103,8 +103,8 @@ $(document).on 'ready page:load', ->
 		$('#institucionalizado').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#desconocidoEx').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#emergente').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_expectativas').value='Latente' ; 
-		document.getElementById('expectativas_text').innerHTML='Latente' ; 
+		document.getElementById('stakeholder_expectativas').value= 'Latente' ; 
+		document.getElementById('expectativas_text').innerHTML= 'Latente' ; 
 		if $(@).hasClass('botonIdentificacionUnchecked')
 			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
 		else
@@ -115,8 +115,8 @@ $(document).on 'ready page:load', ->
 		$('#institucionalizado').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#desconocidoEx').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#emergente').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_expectativas').value='En Consolidación' ; 
-		document.getElementById('expectativas_text').innerHTML='En Consolidación' ; 
+		document.getElementById('stakeholder_expectativas').value= 'En Consolidación' ; 
+		document.getElementById('expectativas_text').innerHTML= 'En Consolidación' ; 
 		if $(@).hasClass('botonIdentificacionUnchecked')
 			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
 		else
@@ -127,8 +127,8 @@ $(document).on 'ready page:load', ->
 		$('#latente').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#desconocidoEx').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#emergente').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_expectativas').value='Institucionalizado' ; 
-		document.getElementById('expectativas_text').innerHTML='Institucionalizado' ; 
+		document.getElementById('stakeholder_expectativas').value= 'Institucionalizado' ; 
+		document.getElementById('expectativas_text').innerHTML= 'Institucionalizado' ; 
 		if $(@).hasClass('botonIdentificacionUnchecked')
 			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
 		else
@@ -139,8 +139,8 @@ $(document).on 'ready page:load', ->
 		$('#institucionalizado').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#latente').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#emergente').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_expectativas').value='Desconocido' ; 
-		document.getElementById('expectativas_text').innerHTML='Desconocido' ; 
+		document.getElementById('stakeholder_expectativas').value= 'Desconocido' ; 
+		document.getElementById('expectativas_text').innerHTML= 'Desconocido' ; 
 		if $(@).hasClass('botonIdentificacionUnchecked')
 			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
 		else
@@ -151,8 +151,8 @@ $(document).on 'ready page:load', ->
 		$('#institucionalizado').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#desconocidoEx').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#latente').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_expectativas').value='Emergente' ; 
-		document.getElementById('expectativas_text').innerHTML='Emergente' ; 
+		document.getElementById('stakeholder_expectativas').value= 'Emergente' ; 
+		document.getElementById('expectativas_text').innerHTML= 'Emergente' ; 
 		if $(@).hasClass('botonIdentificacionUnchecked')
 			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
 		else
@@ -165,8 +165,8 @@ $(document).on 'ready page:load', ->
 		$('#cercania').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#dependencia').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#representacion').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_dimension').value='Por Influencia' ;
-		document.getElementById('dimension_text').innerHTML='Por Influencia' ; 
+		document.getElementById('stakeholder_dimension').value= 'Por Influencia' ;
+		document.getElementById('dimension_text').innerHTML= 'Por Influencia' ; 
 		if $(@).hasClass('botonIdentificacionUnchecked')
 			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
 		else
@@ -177,8 +177,8 @@ $(document).on 'ready page:load', ->
 		$('#responsabilidad').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#dependencia').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#representacion').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_dimension').value='Por Cercanía' ; 
-		document.getElementById('dimension_text').innerHTML='Por Cercanía' ; 
+		document.getElementById('stakeholder_dimension').value= 'Por Cercanía' ; 
+		document.getElementById('dimension_text').innerHTML= 'Por Cercanía' ; 
 		if $(@).hasClass('botonIdentificacionUnchecked')
 			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
 		else
@@ -190,8 +190,8 @@ $(document).on 'ready page:load', ->
 		$('#cercania').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#responsabilidad').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#representacion').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_dimension').value='Por Dependencia' ; 
-		document.getElementById('dimension_text').innerHTML='Por Dependencia' ; 
+		document.getElementById('stakeholder_dimension').value= 'Por Dependencia' ; 
+		document.getElementById('dimension_text').innerHTML= 'Por Dependencia' ; 
 		if $(@).hasClass('botonIdentificacionUnchecked')
 			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
 		else
@@ -203,8 +203,8 @@ $(document).on 'ready page:load', ->
 		$('#cercania').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#dependencia').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#responsabilidad').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_dimension').value='Por Representación' ; 
-		document.getElementById('dimension_text').innerHTML='Por Representación' ; 
+		document.getElementById('stakeholder_dimension').value= 'Por Representación' ; 
+		document.getElementById('dimension_text').innerHTML= 'Por Representación' ; 
 		if $(@).hasClass('botonIdentificacionUnchecked')
 			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
 		else
@@ -216,8 +216,8 @@ $(document).on 'ready page:load', ->
 		$('#cercania').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#dependencia').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#representacion').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_dimension').value='Por Responsabilidad' ; 
-		document.getElementById('dimension_text').innerHTML='Por Responsabilidad' ; 
+		document.getElementById('stakeholder_dimension').value= 'Por Responsabilidad' ; 
+		document.getElementById('dimension_text').innerHTML= 'Por Responsabilidad' ; 
 		if $(@).hasClass('botonIdentificacionUnchecked')
 			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
 		else
@@ -229,8 +229,8 @@ $(document).on 'ready page:load', ->
 		$('#depindirecta').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#eleccion').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#financiera').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_dependencia').value='Dependencia Financiera Directa' ; 
-		document.getElementById('dependencia_text').innerHTML='Dependencia Financiera Directa' ; 
+		document.getElementById('stakeholder_dependencia').value= 'Dependencia Financiera Directa' ; 
+		document.getElementById('dependencia_text').innerHTML= 'Dependencia Financiera Directa' ; 
 		if $(@).hasClass('botonIdentificacionUnchecked')
 			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
 		else
@@ -240,8 +240,8 @@ $(document).on 'ready page:load', ->
 		$('#depdirecta').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#eleccion').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#financiera').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_dependencia').value='Dependencia Financiera Indirecta' ; 
-		document.getElementById('dependencia_text').innerHTML='Dependencia Financiera Indirecta' ; 
+		document.getElementById('stakeholder_dependencia').value= 'Dependencia Financiera Indirecta' ; 
+		document.getElementById('dependencia_text').innerHTML= 'Dependencia Financiera Indirecta' ; 
 		if $(@).hasClass('botonIdentificacionUnchecked')
 			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
 		else
@@ -252,8 +252,8 @@ $(document).on 'ready page:load', ->
 		$('#depindirecta').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#depdirecta').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#financiera').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_dependencia').value='Con Poco o Sin Poder de Elección' ; 
-		document.getElementById('dependencia_text').innerHTML='Con Poco o Sin Poder de Elección' ; 
+		document.getElementById('stakeholder_dependencia').value= 'Con Poco o Sin Poder de Elección' ; 
+		document.getElementById('dependencia_text').innerHTML= 'Con Poco o Sin Poder de Elección' ; 
 		if $(@).hasClass('botonIdentificacionUnchecked')
 			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
 		else
@@ -264,8 +264,8 @@ $(document).on 'ready page:load', ->
 		$('#depindirecta').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#eleccion').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
 		$('#depdirecta').removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
-		document.getElementById('stakeholder_dependencia').value='Dependencia No Financiera' ; 
-		document.getElementById('dependencia_text').innerHTML='Dependencia No Financiera' ; 
+		document.getElementById('stakeholder_dependencia').value= 'Dependencia No Financiera' ; 
+		document.getElementById('dependencia_text').innerHTML= 'Dependencia No Financiera' ; 
 		if $(@).hasClass('botonIdentificacionUnchecked')
 			$(@).removeClass('botonIdentificacionUnchecked').addClass('botonIdentificacionChecked')
 		else

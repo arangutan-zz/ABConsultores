@@ -102,13 +102,13 @@ class StakeholdersController < ApplicationController
     #se agregan para tener actualiazada su influencia
     if params[:influences]
       params[:influences].each_key do |per|
-         Influencestakeholder.create(stakeholder_id:current_user.id,influence_id:per)
+         Influencestakeholder.create(stakeholder_id: @stakeholder.id,influence_id:per)
       end
     end
 
     if params[:relevances]
       params[:relevances].each_key do |per|
-         Relevancestakeholder.create(stakeholder_id:current_user.id,relevance_id:per)
+         Relevancestakeholder.create(stakeholder_id: @stakeholder.id,relevance_id:per)
       end
     end
 

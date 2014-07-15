@@ -9,7 +9,7 @@
 				= message
 
 	.row
-		.large-4.columns#influencia
+		.large-4.small-4.columns#influencia-contenedor
 			= f.label :influencia
 			- Influence.all.each do |influ|
 				.row
@@ -19,9 +19,9 @@
 				.row.hide
 					= check_box_tag("influences[#{influ.id}]",1,@stakeholder.influences.include?(influ), class: 'influencecb-'+influ.id.to_s)
 			
-		.large-4.columns
+		.large-4.small-4.columns
 
-		.large-4.columns#relevancia
+		.large-4.small-4.columns#relevancia
 			= f.label :relevancia
 			- Relevance.all.each do |rele|
 				.row
@@ -38,21 +38,21 @@
 
 	.row
 		.row
-			.large-4.columns.titulo.text-center
+			.large-4.small-4.columns.titulo.text-center
 				%h5.blanco
 					NECESIDADES DE LOGRO
-			.large-4.columns.titulo.text-center			
+			.large-4.small-4.columns.titulo.text-center			
 				%h5.blanco	
 					NECESIDADES DE PODER
-			.large-4.columns.titulo.text-center
+			.large-4.small-4.columns.titulo.text-center
 				%h5.blanco
 					NECESIDADES DE AFILIACIÓN
 		.row
-			.large-4.columns.necesidades
+			.large-4.small-4.columns.necesidades
 				= f.text_field :necesidades_logro, class: 'text_field_nec text-center'
-			.large-4.columns.necesidades
+			.large-4.small-4.columns.necesidades
 				= f.text_field :necesidades_poder, class: 'text_field_nec text-center'
-			.large-4.columns.necesidades
+			.large-4.small-4.columns.necesidades
 				= f.text_field :necesidades_afiliacion, class: 'text_field_nec text-center'
 
 
