@@ -27,6 +27,8 @@ Rails.application.routes.draw do
 
   patch 'stakeholders/:id/guardarinfluencia', to: 'stakeholders#guardarinfluencia', as: 'stakeholders/guardarinfluencia'
 
+  get 'stakeholders/:id/relevances', to: 'stakeholders#relevancesuser', as: 'stakeholders/relevances'
+
 
   # get 'users/new'
 

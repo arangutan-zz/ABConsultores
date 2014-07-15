@@ -162,24 +162,28 @@ class StakeholderPdf < Prawn::Document
 
 
 		#sixth row
-		bounding_box([0, cursor-10], :width => 150) do
+		y=cursor
+		bounding_box([0, y], :width => 150) do
 			font "Times-Roman", :style => :bold
 			text "\nINFLUENCIA", :align => :center
 			font "Times-Roman", :style => :normal
-			text stakeholder.disposicion.upcase+"\n", :align => :center
-
+			stakeholder.influences.all.each do |relevances|
+				text relevances.nombre.upcase+"\n", :align => :center
+			end
 			transparent(0.5) {}
 		end
 
-		bounding_box([185, cursor+38], :width => 150) do
+		bounding_box([185, y], :width => 150) do
 			font "Times-Roman", :style => :bold
 			text "\nRELEVANCIA", :align => :center
 			font "Times-Roman", :style => :normal
-			text stakeholder.expectativas.upcase+"\n", :align => :center
+			stakeholder.relevances.all.each do |relevances|
+				text relevances.nombre.upcase+"\n", :align => :center
+			end
 			transparent(0.5) {}
 		end
 		gap=0
-		bounding_box([380, cursor+38], :width => 190) do
+		bounding_box([380, y], :width => 190) do
 			font "Times-Roman", :style => :bold
 			text "\nPERFIL DE RELACIONAMIENTO"
 			font "Times-Roman", :style => :normal

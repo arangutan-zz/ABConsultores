@@ -1,11 +1,18 @@
 class StakeholdersController < ApplicationController
-  before_action :set_stakeholder, only: [:show, :edit, :update, :destroy,:clasificacion,:influencia, :influenciaview, :guardarinfluencia]
+  before_action :set_stakeholder, only: [:show, :edit, :update, :destroy,:clasificacion,:influencia, :influenciaview, :guardarinfluencia ,:relevancesuser]
 
   # GET /stakeholders
   # GET /stakeholders.json
   def index
     @stakeholders = current_user.empresa.stakeholders.all
   end
+
+  # GET /stakeholders/1/relevances
+  
+  def relevancesuser
+    @stakeholder.relevances
+  end
+
 
   # GET /stakeholders/1
   # GET /stakeholders/1.json
@@ -81,6 +88,31 @@ class StakeholdersController < ApplicationController
   end
 
   def guardarinfluencia
+    
+
+    #se eliminan para tener actualiazada su influencia    
+    @stakeholder.relevancestakeholders.each do |re|
+      re.destroy
+    end
+
+    @stakeholder.influencestakeholders.each do |re|
+      re.destroy
+    end
+
+    #se agregan para tener actualiazada su influencia
+    if params[:influences]
+      params[:influences].each_key do |per|
+         Influencestakeholder.create(stakeholder_id:current_user.id,influence_id:per)
+      end
+    end
+
+    if params[:relevances]
+      params[:relevances].each_key do |per|
+         Relevancestakeholder.create(stakeholder_id:current_user.id,relevance_id:per)
+      end
+    end
+
+
     respond_to do |format|
       if @stakeholder.update(stakeholder_params)
         format.html { redirect_to stakeholders_path, notice: 'El stakeholder se actualizo correctamente' }

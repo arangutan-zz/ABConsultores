@@ -100,8 +100,25 @@
     <div class="row">
       <div class="large-4 columns">
         <div class="field">
-          <%= f.label :impacto %><br>
-          <%= f.text_field :impacto %>
+          <%= f.label :impacto %><br>         
+          <% if @stakeholder.impacto %>
+            <%= hidden_field_tag 'stakeholder[impacto]', @stakeholder.impacto %>
+          <% end %>  
+          <div class="row">
+            <div class="large-12 columns imageChecked <%= @stakeholder.impacto == 'Alto' ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked" %> text-center" id="alto">
+                  <h3 class="blanco" >ALTO</h3> 
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-12 columns imageChecked <%= @stakeholder.impacto == 'Medio' ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked" %> text-center" id="medio">
+                  <h3 class="blanco">MEDIO</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-12 columns imageChecked <%= @stakeholder.impacto == 'Bajo' ? "botonIdentificacionChecked" : "botonIdentificacionUnchecked" %> text-center" id="bajo">
+                  <h3 class="blanco">BAJO</h3>
+            </div>
+          </div>
         </div>
       </div>
       <div class="large-8 columns">

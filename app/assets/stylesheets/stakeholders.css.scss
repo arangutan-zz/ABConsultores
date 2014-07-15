@@ -1,3 +1,44 @@
 // Place all the styles related to the stakeholders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.imageChecked{
+	background: url('button_check.png') ;
+	cursor: pointer;
+	width: 315px;
+	height: 50px;
+	margin-bottom: 15px;
+}
+
+.botonIdentificacionChecked{
+	background-position: 0px -60px;
+}
+
+.botonIdentificacionUnchecked{
+	background-position: 0px 0px;
+}
+
+.historialClasificacion{
+	height: 70px;
+	border-bottom: dotted 2px;
+}
+
+.dependencia{
+	width: 220px;
+	margin: 0 auto;
+}
+
+.titulo{
+	background-color: #639cc6;
+}
+
+.necesidades{
+	padding: 0 !important;
+}
+
+.text_field_nec{
+	border: 0px solid #cccccc !important;
+	height: 100px !important;
+	font-size: 50pt !important;
+	font-weight: bold !important;
+}

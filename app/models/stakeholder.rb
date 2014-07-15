@@ -6,7 +6,10 @@ class Stakeholder < ActiveRecord::Base
 	has_many :temasregulatorios
 	belongs_to :entity
 	belongs_to :empresa
-
+	
+	has_many :influencestakeholders
+	has_many :influences, :through => :influencestakeholders
+	has_many :relevancestakeholders
 	has_many :relevances, :through => :relevancestakeholders
 
 	def nombre_completo
