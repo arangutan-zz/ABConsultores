@@ -5,3 +5,16 @@
 #change_password{
 	cursor: pointer;
 }
+
+
+@media only screen and (min-width: 647px) {
+	.hidden-large	{ display:none; visibility:hidden; }
+}
+
+@media only screen and (max-width: 655px) {
+	.hidden-movil-medium-user	{ display:none; visibility:hidden; }
+}
+
+@media only screen and (max-width: 490px) {
+	.hidden-movil-small-user	{ display:none; visibility:hidden; }
+}

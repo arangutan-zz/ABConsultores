@@ -15,3 +15,22 @@ $(document).on 'ready page:load', ->
 
 	$('body').on 'click','.abrir_menu', ->
 		$('.menu_general').show()
+
+
+	$('#linkquienessomos').on 'click', ->
+		$('#quienessomos').animatescroll();
+
+	$('#linkservicios').on 'click', ->
+		$('#servicios').animatescroll();
+
+	$('#linkexperiencia').on 'click', ->
+		$('#experiencia').animatescroll();
+
+	$('#linkequipo').on 'click', ->
+		$('#equipo').animatescroll();
+
+	$('#linkgerente').on 'click', ->
+		$('#gerente').animatescroll();
+
+	$('#linkhome').on 'click', ->
+		$('body').animatescroll();

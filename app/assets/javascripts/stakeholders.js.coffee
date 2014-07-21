@@ -294,3 +294,5 @@ $(document).on 'ready page:load', ->
 		else
 			$('.influencecb-'+$id).prop('checked', false)
 			$this.removeClass('botonIdentificacionChecked').addClass('botonIdentificacionUnchecked')
+
+	#---------------------------------------------------------------------------------------------------------------------

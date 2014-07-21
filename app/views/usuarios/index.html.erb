@@ -13,11 +13,12 @@
 <table id="buscar" cellspacing="0" width="100%">
   <thead class="head-tabla">
     <tr>
-      <th>Usuario</th>
-      <th>Nombre</th>
-      <th>Apellido</th>
-      <th>Cargo</th>
-      <th>Rol</th>
+      <th class="hidden-movil-medium-user">Usuario</th>
+      <th class="hidden-movil-medium-user">Nombre</th>
+      <th class="hidden-movil-medium-user">Apellido</th>
+      <th class="hidden-large">Nombre</th>
+      <th class="hidden-movil-small-user">Cargo</th>
+      <th class="hidden-movil-small-user">Rol</th>
       <th>Ver</th>
       <th>Editar</th>
       <th>Eliminar</th>
@@ -27,11 +28,12 @@
   <tbody>
     <% @usuarios.each do |user| %>
       <tr>
-        <td><%= user.username %></td>
-        <td><%= user.nombre %></td>
-        <td><%= user.apellido %></td>
-        <td><%= user.cargo %></td>
-        <td><%= user.rol %></td>
+        <td class="hidden-movil-medium-user"><%= user.username %></td>
+        <td class="hidden-movil-medium-user"><%= user.nombre %></td>
+        <td class="hidden-movil-medium-user"><%= user.apellido %></td>
+        <td class="hidden-large"><%= user.nombre+" "+user.apellido %></td>
+        <td class="hidden-movil-small-user"><%= user.cargo %></td>
+        <td class="hidden-movil-small-user"><%= user.rol %></td>
         <td><%= link_to (image_tag 'imprimir_pequeno.png'), '/usuarios/'+user.id.to_s+'.pdf' , target: '_blank' %></td>
         <td><%= link_to (image_tag 'editar_1.png'), usuarios_edit_path(user) %></td>
         <td><%= link_to (image_tag 'eliminar_1.png'), user.id.to_s, method: :delete, data: { confirm: 'Are you sure?' } %></td>

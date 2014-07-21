@@ -18,9 +18,9 @@
     <tr>
       <th>Tema</th>
       <th>Fecha</th>
-      <th>Asistentes</th>
-      <th>Resumen</th>
-      <th>Stakeholder</th>
+      <th class="hidden-movil-medium-meet">Asistentes</th>
+      <th class="hidden-movil-small-meet">Resumen</th>
+      <th class="hidden-movil-medium-meet">Stakeholder</th>
       <th>PDF</th>
       <th>Editar</th>
       <th>Eliminar</th>
@@ -32,9 +32,9 @@
       <tr>
         <td><%= metting.tema %></td>
         <td><%= metting.fecha %></td>
-        <td><%= metting.asistentes %></td>
-        <td><%= metting.resumen %></td>
-        <td><%= metting.stakeholder.nombre %></td>
+        <td class="hidden-movil-medium-meet"><%= metting.asistentes %></td>
+        <td class="hidden-movil-small-meet"><%= metting.resumen %></td>
+        <td class="hidden-movil-medium-meet"><%= metting.stakeholder.nombre %></td>
         <td><%= link_to (image_tag 'imprimir_pequeno.png'), '/mettings/'+metting.id.to_s+'.pdf' , target: '_blank'%></td>
         <td><%= link_to (image_tag 'editar_1.png'), edit_metting_path(metting) %></td>
         <td><%= link_to (image_tag 'eliminar_1.png'), metting, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -18,8 +18,8 @@
     <tr>
       <th>Tema</th>
       <th>Informacion</th>
-      <th>Stakeholder</th>
-      <th>Archivo</th>
+      <th class="hidden-movil-small-inte">Stakeholder</th>
+      <th class="hidden-movil-small-inte">Archivo</th>
       <th>PDF</th>
       <th>Editar</th>
       <th>Eliminar</th>
@@ -31,8 +31,8 @@
       <tr>
         <td><%= interest.tema %></td>
         <td><%= interest.informacion %></td>
-        <td><%= interest.stakeholder.nombre %></td>
-        <td><%= link_to 'Archivo', interest.imagen_url  %></td>
+        <td class="hidden-movil-small-inte"><%= interest.stakeholder.nombre %></td>
+        <td class="hidden-movil-small-inte"><%= link_to 'Archivo', interest.imagen_url  %></td>
         <td><%= link_to (image_tag 'imprimir_pequeno.png'), '/interests/'+interest.id.to_s+'.pdf' , target: '_blank'%></td>
         <td><%= link_to (image_tag 'editar_1.png'), edit_interest_path(interest) %></td>
         <td><%= link_to (image_tag 'eliminar_1.png'), interest, method: :delete, data: { confirm: 'Are you sure?' } %></td>

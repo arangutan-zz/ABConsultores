@@ -18,8 +18,8 @@
     <tr>
       <th>Titulo</th>
       <th>Resumen</th>
-      <th>Stakeholder</th>
-      <th>Archivo</th>
+      <th class="hidden-movil-small-reg">Stakeholder</th>
+      <th class="hidden-movil-small-reg">Archivo</th>
       <th>PDF</th>
       <th>Editar</th>
       <th>Eliminar</th>
@@ -31,8 +31,8 @@
       <tr>
         <td><%= temasregulatorio.titulo %></td>
         <td><%= temasregulatorio.resumen %></td>
-        <td><%= temasregulatorio.stakeholder.nombre %></td>
-        <td><%= link_to 'Archivo', temasregulatorio.imagen_url %></td>
+        <td class="hidden-movil-small-reg"><%= temasregulatorio.stakeholder.nombre %></td>
+        <td class="hidden-movil-small-reg"><%= link_to 'Archivo', temasregulatorio.imagen_url %></td>
         <td><%= link_to (image_tag 'imprimir_pequeno.png'), '/temasregulatorios/'+temasregulatorio.id.to_s+'.pdf' , target: "_blank" %></td>
         <td><%= link_to (image_tag 'editar_1.png'), edit_temasregulatorio_path(temasregulatorio) %></td>
         <td><%= link_to (image_tag 'eliminar_1.png'), temasregulatorio, method: :delete, data: { confirm: 'Are you sure?' } %></td>

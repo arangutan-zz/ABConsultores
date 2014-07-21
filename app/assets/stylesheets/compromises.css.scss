@@ -1,3 +1,10 @@
 // Place all the styles related to the compromises controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@media only screen and (max-width: 542px) {
+	.hidden-movil-medium-comp	{ display:none; visibility:hidden; }
+}
+
+@media only screen and (max-width: 480px) {
+	.hidden-movil-small-comp	{ display:none; visibility:hidden; }
+}

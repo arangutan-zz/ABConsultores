@@ -17,13 +17,13 @@
   <thead class="head-tabla">
     <tr>
       <th>Imagen</th>
-      <th>Nombre comercial</th>
-      <th>Razon social</th>
-      <th>Nit</th>
-      <th>Representante legal</th>
-      <th>Creado</th>
-      <th>PDF</th>
-      <th>Editar</th>
+      <th >Nombre comercial</th>
+      <th class="hidden-movil-small-empresa">Razon social</th>
+      <th class="hidden-movil-medium-empresa">Nit</th>
+      <th class="hidden-movil-small-empresa">Representante legal</th>
+      <th class="hidden-movil-small-empresa">Creado</th>
+      <th >PDF</th>
+      <th >Editar</th>
       <th>Eliminar</th>
     </tr>
   </thead>
@@ -33,10 +33,10 @@
       <tr>
         <td><%= image_tag empresa.imagen_url , class: 'imagen' %></td>
         <td><%= empresa.nombre_comercial %></td>
-        <td><%= empresa.razon_social %></td>
-        <td><%= empresa.nit %></td>
-        <td><%= empresa.representante_legal %></td>
-        <td><%= empresa.created_at.to_s %></td>
+        <td class="hidden-movil-small-empresa"><%= empresa.razon_social %></td>
+        <td class="hidden-movil-medium-empresa"><%= empresa.nit %></td>
+        <td class="hidden-movil-small-empresa"><%= empresa.representante_legal %></td>
+        <td class="hidden-movil-small-empresa"><%= empresa.created_at.to_s %></td>
         <td><%= link_to (image_tag 'imprimir_pequeno.png'), '/empresas/'+empresa.id.to_s+'.pdf' , target: "_blank" %></td>
         <td><%= link_to (image_tag 'editar_1.png'), edit_empresa_path(empresa) %></td>
         <td><%= link_to (image_tag 'eliminar_1.png'), empresa, method: :delete, data: { confirm: 'Are you sure?' } %></td>

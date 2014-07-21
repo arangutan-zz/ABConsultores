@@ -11,20 +11,21 @@
 </div>
 <hr class="linea">
 
-<table id="buscar" cellspacing="0" width="100%">
+<table id="buscar" class="responsive display stake" cellspacing="0" width="100%">
   <thead class="head-tabla">
     <tr>
-      <th>Imagen</th>
-      <th>Nombre</th>
-      <th>Apellido</th>
-      <th>Entidad</th>
-      <th>Cargo</th>
-      <th>Tipo de entidad</th>
-      <th>Pais</th>
-      <th>Impacto</th>
-      <th>PDF</th>
-      <th>Editar</th>
-      <th>Eliminar</th>
+      <th> Imagen</th>
+      <th class="hidden-movil-medium hidden-movil-small">Nombre</th>
+      <th class="hidden-movil-medium hidden-movil-small">Apellido</th>
+      <th class="hidden-large">Nombre</th>
+      <th class="hidden-movil-small">Entidad</th>
+      <th class="hidden-movil-medium hidden-movil-small">Cargo</th>
+      <th class="hidden-movil-small">Tipo de entidad</th>
+      <th class="hidden-movil-medium hidden-movil-small">Pais</th>
+      <th class="hidden-movil-medium hidden-movil-small">Impacto</th>
+      <th id="stakeholderpdf">PDF</th>
+      <th id="stakeholdereditar">Editar</th>
+      <th id="stakeholdereliminar">Eliminar</th>
     </tr>
   </thead>
 
@@ -32,13 +33,14 @@
     <% @stakeholders.each do |stakeholder| %>
       <tr>
         <td><%= image_tag stakeholder.imagen_url , class: 'imagen' %></td>
-        <td><%= stakeholder.nombre %></td>
-        <td><%= stakeholder.apellido %></td>
-        <td><%= stakeholder.entidad %></td>
-        <td><%= stakeholder.cargo %></td>
-        <td><%= stakeholder.entity ? stakeholder.entity.nombre : ''  %></td>
-        <td><%= stakeholder.pais %></td>
-        <td><%= stakeholder.impacto %></td>
+        <td class="hidden-movil-medium hidden-movil-small"><%= stakeholder.nombre %></td>
+        <td class="hidden-movil-medium hidden-movil-small"><%= stakeholder.apellido %></td>
+        <td class="hidden-large"><%= stakeholder.nombre+" "+stakeholder.apellido %></td>
+        <td class="hidden-movil-small"><%= stakeholder.entidad %></td>
+        <td class="hidden-movil-medium hidden-movil-small"><%= stakeholder.cargo %></td>
+        <td class="hidden-movil-small"><%= stakeholder.entity ? stakeholder.entity.nombre : ''  %></td>
+        <td class="hidden-movil-medium hidden-movil-small"><%= stakeholder.pais %></td>
+        <td class="hidden-movil-medium hidden-movil-small "><%= stakeholder.impacto %></td>
         <td><%= link_to (image_tag 'imprimir_pequeno.png'), '/stakeholders/'+stakeholder.id.to_s+'.pdf' , target: "_blank" %></td>
         <td><%= link_to (image_tag 'editar_1.png'), edit_stakeholder_path(stakeholder) %></td>
         <td><%= link_to (image_tag 'eliminar_1.png'), stakeholder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -54,14 +56,11 @@
 <hr class="linea">
 
 
-
-
-
 <script type="text/javascript" >
   $(document).ready(function(){
     $('#buscar').dataTable({
       "paging":   false,
-        "info":     false
+      "info":     false,
     });
   });
 </script>

@@ -1,5 +1,6 @@
-= render 'layouts/menu_superior'
-.main_image
+.sticky
+	= render 'layouts/menu_superior'
+.main_image#main
 	.row
 		.large-6.small-12.column
 			%h1.blanco.bold
@@ -22,7 +23,7 @@
 				.large-12.column.text-center
 					= link_to 'INGRESO DE USUARIOS', new_user_session_path , class: 'button verde-bg'
 
-.contenedor
+.contenedor#quienessomos
 	.row
 		.large-6.column
 			%h2.verde.text-center.title-quienes.bold
@@ -45,7 +46,7 @@
 				No Gubernamentales. Adicionalmente, entidades 
 				del sector público del nivel Municipal, 
 				Departamental y Nacional.
-.servicios
+.servicios#servicios
 	.row
 		.large-12.column.title-servicios
 			%h2.blanco.text-center.bold
@@ -79,19 +80,14 @@
 				Gestión, 
 				identificación 
 				y relacionamiento 
-				a través del 
-				stakeholder 
-				management 
-				system (sms)
 		.large-3.column.text-center
 			=  image_tag 'icono_4_nuestros-servicios.png'
 			%br
 			%br
-			%p.blanco
-				Seguimiento 
-				legislativo y 
-				normativo system 
-				(sms)
+			%p.blanco#experiencia
+				Implementación
+				del stakeholder 
+				management system (sms)
 .contenedor
 	.row
 		.large-12.column
@@ -131,7 +127,7 @@
 
 
 
-.large-6.column.gris-claro-bg.contenedor-especial
+.large-6.column.gris-claro-bg.contenedor-especial#equipo
 	.row
 		.large-6.hide-for-small-only.column
 		.large-6.small-12.column
@@ -153,7 +149,7 @@
 		.large-6.hide-for-small-only.column
 
 .servicios.clearfix
-	.row
+	.row#gerente
 		.large-6.column
 			%h2.blanco.text-left.title-quienes.bold
 				MARCELA BEJARANO FERNÁNDEZ
@@ -174,7 +170,7 @@
 				Secretaria Privada del Ministro de Transporte 
 				durante el periodo del 2010 al 2011 y 
 				posteriormente fue Secretaria Privada del Ministro 
-				de Hacienda y Crédito Público; En el 2013, se ha 
+				de Hacienda y Crédito Público; Desde el año 2013, se ha 
 				desempeñado como consultora para la compañía de 
 				infraestructura brasileña Constructora Norberto 
 				Odebrecht, la Federación Nacional de 
