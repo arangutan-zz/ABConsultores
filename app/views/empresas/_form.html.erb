@@ -18,6 +18,7 @@
         <% if @empresa.imagen_url %>
           <div class="roundLabel">
             <%= image_tag @empresa.imagen_url, class: 'imagen' %>  
+            <%= f.file_field :imagen %>
           </div>
         <% else %>
           <div class="roundLabel">

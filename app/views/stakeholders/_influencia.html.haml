@@ -9,7 +9,7 @@
 				= message
 
 	.row
-		.large-4.small-4.columns#influencia-contenedor
+		.large-4.small-12.columns#influencia-contenedor
 			= f.label :influencia
 			- Influence.all.each do |influ|
 				.row
@@ -19,9 +19,9 @@
 				.row.hide
 					= check_box_tag("influences[#{influ.id}]",1,@stakeholder.influences.include?(influ), class: 'influencecb-'+influ.id.to_s)
 			
-		.large-4.small-4.columns
+		.large-4.columns
 
-		.large-4.small-4.columns#relevancia
+		.large-4.small-12.columns#relevancia
 			= f.label :relevancia
 			- Relevance.all.each do |rele|
 				.row
