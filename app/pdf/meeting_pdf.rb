@@ -44,9 +44,6 @@ class MeetingPdf < Prawn::Document
    		text "STAKEHOLDER: ", :color => "4d4d4d"
    		font "Times-Roman", :style => :normal
    		text meeting.stakeholder.nombre + "" + meeting.stakeholder.apellido, :color => "4d4d4d"
-   		
-
-   		start_new_page(:top_margin => 0)
 	end
 
 	def displayImage(meeting)

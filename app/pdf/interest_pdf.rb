@@ -54,8 +54,6 @@ class InterestPdf < Prawn::Document
 
 			transparent(0.5) {}
 		end
-
-   		start_new_page(:top_margin => 0)
 	end
 
 	def displayImage(interest)

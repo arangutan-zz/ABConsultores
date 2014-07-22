@@ -59,8 +59,6 @@ class CompromisePdf < Prawn::Document
 		text "\nCOMPROMISOS: ", :color => "4d4d4d"
 		font "Times-Roman", :style => :normal
 		text compromise.compromisos+"\n\n", :color => "4d4d4d"  
-
-   		start_new_page(:top_margin => 0)
 	end
 
 	def displayImage(compromise)
