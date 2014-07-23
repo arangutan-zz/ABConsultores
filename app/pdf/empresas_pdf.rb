@@ -22,7 +22,9 @@ class EmpresasPdf < Prawn::Document
 		# end
 
 		bounding_box([0, cursor-20], :width => 150, :height => 150) do
-			image Rails.root.to_s+"/public"+ empresa.imagen_url, :width=>150, :height => 150, :position => :left
+			if empresa.imagen_url
+				image Rails.root.to_s+"/public"+ empresa.imagen_url, :width=>150, :height => 150, :position => :left
+			end
 			transparent(0.5) { stroke_bounds }
 		end
 		

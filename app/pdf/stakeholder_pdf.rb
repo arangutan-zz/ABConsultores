@@ -12,7 +12,7 @@ class StakeholderPdf < Prawn::Document
 		fill_color '747474'
 		fill_rectangle [10, 580], 520, 30
 		font_size 13
-		text_box "<color rgb='ffffff'>"+stakeholder.nombre.upcase+""+stakeholder.apellido.upcase+"</color>", :valign => :center, :at=>[20,1125],:inline_format => true
+		text_box "<color rgb='ffffff'>"+stakeholder.nombre.upcase+" "+stakeholder.apellido.upcase+"</color>", :valign => :center, :at=>[20,1125],:inline_format => true
 
 		font_size 12
 		text_box "\n<color rgb='747474'>IDENTIFICACIÓN STAKEHOLDER</color>",:inline_format => true, :at=>[10,550]
@@ -210,25 +210,33 @@ class StakeholderPdf < Prawn::Document
 		font_size 12
 		bounding_box([15,y], :width => 120,:height=>50) do
 			font "Times-Roman", :style => :normal
-    		cell :content => stakeholder.disposicion.upcase, :background_color => 'eaeaea', :align => :center,:height=>50, :width=>120,  :text_color => "747474", :border_width=>0, :padding => [-3,0,0,0], :valign=>:center
+			if stakeholder.disposicion
+    			cell :content => stakeholder.disposicion.upcase, :background_color => 'eaeaea', :align => :center,:height=>50, :width=>120,  :text_color => "747474", :border_width=>0, :padding => [-3,0,0,0], :valign=>:center
+    		end
     		transparent(0.5) {}
   		end
 
 		bounding_box([145,y], :width => 120,:height=>50) do
 			font "Times-Roman", :style => :normal
-    		cell :content => stakeholder.expectativas.upcase, :background_color => 'eaeaea', :align => :center,:height=>50, :width=>120,  :text_color => "747474", :border_width=>0, :padding => [-3,0,0,0], :valign=>:center
+			if stakeholder.expectativas
+    			cell :content => stakeholder.expectativas.upcase, :background_color => 'eaeaea', :align => :center,:height=>50, :width=>120,  :text_color => "747474", :border_width=>0, :padding => [-3,0,0,0], :valign=>:center
+    		end
     		transparent(0.5) {}
   		end
 
 		bounding_box([275,y], :width => 120,:height=>50) do
 			font "Times-Roman", :style => :normal
-    		cell :content => stakeholder.dimension.upcase, :background_color => 'eaeaea', :align => :center,:height=>50, :width=>120,  :text_color => "747474", :border_width=>0, :padding => [-3,0,0,0], :valign=>:center
+			if stakeholder.dimension
+    			cell :content => stakeholder.dimension.upcase, :background_color => 'eaeaea', :align => :center,:height=>50, :width=>120,  :text_color => "747474", :border_width=>0, :padding => [-3,0,0,0], :valign=>:center
+    		end
     		transparent(0.5) {}
   		end
 
 		bounding_box([405,y], :width => 120,:height=>50) do
 			font "Times-Roman", :style => :normal
-    		cell :content => stakeholder.dependencia.upcase, :background_color => 'eaeaea', :align => :center,:height=>50, :width=>120,  :text_color => "747474", :border_width=>0, :padding => [-3,0,0,0], :valign=>:center
+			if stakeholder.dependencia
+    			cell :content => stakeholder.dependencia.upcase, :background_color => 'eaeaea', :align => :center,:height=>50, :width=>120,  :text_color => "747474", :border_width=>0, :padding => [-3,0,0,0], :valign=>:center
+    		end
     		transparent(0.5) {}
   		end
 
@@ -308,7 +316,9 @@ class StakeholderPdf < Prawn::Document
   			bounding_box([96,y+40], :width => 70,:height=>40) do
 				font "Times-Roman", :style => :normal
 				font_size 18
-    			cell :content => ""+stakeholder.necesidades_logro.upcase+"%", :background_color => 'eaeaea', :align => :center,:height=>40, :width=>70,  :text_color => "747474", :border_width=>0, :valign=>:center,:padding => [-3,0,0,0]
+				if stakeholder.necesidades_logro
+    				cell :content => ""+stakeholder.necesidades_logro.upcase+"%", :background_color => 'eaeaea', :align => :center,:height=>40, :width=>70,  :text_color => "747474", :border_width=>0, :valign=>:center,:padding => [-3,0,0,0]
+    			end
     			transparent(0.5) {}
   			end
 
@@ -323,7 +333,9 @@ class StakeholderPdf < Prawn::Document
   			bounding_box([96,y+40], :width => 70,:height=>40) do
 				font "Times-Roman", :style => :normal
 				font_size 18
-    			cell :content => ""+stakeholder.necesidades_poder.upcase.upcase+"%", :background_color => 'eaeaea', :align => :center,:height=>40, :width=>70,  :text_color => "747474", :border_width=>0, :valign=>:center,:padding => [-3,0,0,0]
+				if stakeholder.necesidades_poder
+    				cell :content => ""+stakeholder.necesidades_poder.upcase+"%", :background_color => 'eaeaea', :align => :center,:height=>40, :width=>70,  :text_color => "747474", :border_width=>0, :valign=>:center,:padding => [-3,0,0,0]
+    			end
     			transparent(0.5) {}
   			end
 
@@ -338,7 +350,9 @@ class StakeholderPdf < Prawn::Document
   			bounding_box([96,y+40], :width => 70,:height=>40) do
 				font "Times-Roman", :style => :normal
 				font_size 18
-    			cell :content => ""+stakeholder.necesidades_afiliacion.upcase.upcase+"%", :background_color => 'eaeaea', :align => :center,:height=>40, :width=>70,  :text_color => "747474", :border_width=>0, :valign=>:center,:padding => [-3,0,0,0]
+				if stakeholder.necesidades_afiliacion
+    				cell :content => ""+stakeholder.necesidades_afiliacion.upcase+"%", :background_color => 'eaeaea', :align => :center,:height=>40, :width=>70,  :text_color => "747474", :border_width=>0, :valign=>:center,:padding => [-3,0,0,0]
+    			end
     			transparent(0.5) {}
   			end
 			transparent(0.5) {}
@@ -399,7 +413,7 @@ class StakeholderPdf < Prawn::Document
 					font "Times-Roman", :style => :bold
 					text "\nRESUMEN"
 					font "Times-Roman", :style => :normal
-					cell :content => ""+firstmeeting.resumen, :background_color => 'eaeaea', :width=>520, height:200, :text_color => "747474", :border_width=>0
+					cell :content => ""+firstmeeting.resumen, :background_color => 'eaeaea', :width=>520, height:520, :text_color => "747474", :border_width=>0
 					transparent(0.5) {}
 				end
 
@@ -450,7 +464,7 @@ class StakeholderPdf < Prawn::Document
 					font "Times-Roman", :style => :bold
 					text "\nRESUMEN"
 					font "Times-Roman", :style => :normal
-					cell :content => ""+meeting.resumen.upcase+"%", :background_color => 'eaeaea', :width=>520, height:200, :text_color => "747474", :border_width=>0
+					cell :content => ""+meeting.resumen.upcase+"%", :background_color => 'eaeaea', :width=>520, height:520, :text_color => "747474", :border_width=>0
 					transparent(0.5) {}
 				end
 			end
@@ -507,7 +521,7 @@ class StakeholderPdf < Prawn::Document
 					font "Times-Roman", :style => :bold
 					text "\nRESUMEN"
 					font "Times-Roman", :style => :normal
-					cell :content => ""+firstcompromise.compromisos, :background_color => 'eaeaea', :width=>520, height:200, :text_color => "747474", :border_width=>0
+					cell :content => ""+firstcompromise.compromisos, :background_color => 'eaeaea', :width=>520, height:520, :text_color => "747474", :border_width=>0
 					transparent(0.5) {}
 				end
 
@@ -557,7 +571,7 @@ class StakeholderPdf < Prawn::Document
 					font "Times-Roman", :style => :bold
 					text "\nRESUMEN"
 					font "Times-Roman", :style => :normal
-					cell :content => ""+compromise.compromisos, :background_color => 'eaeaea', :width=>520, height:200, :text_color => "747474", :border_width=>0
+					cell :content => ""+compromise.compromisos, :background_color => 'eaeaea', :width=>520, height:520, :text_color => "747474", :border_width=>0
 					transparent(0.5) {}
 				end
 			end
@@ -593,7 +607,7 @@ class StakeholderPdf < Prawn::Document
 					font "Times-Roman", :style => :bold
 					text "\nINFORMACIÓN"
 					font "Times-Roman", :style => :normal
-					cell :content => ""+firstinterest.informacion, :background_color => 'eaeaea', :width=>520, height:200, :text_color => "747474", :border_width=>0
+					cell :content => ""+firstinterest.informacion, :background_color => 'eaeaea', :width=>520, height:520, :text_color => "747474", :border_width=>0
 					transparent(0.5) {}
 				end
 			stakeholder.interest.drop(1).each do |interest|
@@ -619,7 +633,7 @@ class StakeholderPdf < Prawn::Document
 					font "Times-Roman", :style => :bold
 					text "\nINFORMACIÓN"
 					font "Times-Roman", :style => :normal
-					cell :content => ""+interest.informacion, :background_color => 'eaeaea', :width=>520, height:200, :text_color => "747474", :border_width=>0
+					cell :content => ""+interest.informacion, :background_color => 'eaeaea', :width=>520, height:520, :text_color => "747474", :border_width=>0
 					transparent(0.5) {}
 				end
 			end
@@ -656,7 +670,7 @@ class StakeholderPdf < Prawn::Document
 					font "Times-Roman", :style => :bold
 					text "\nRESUMEN"
 					font "Times-Roman", :style => :normal
-					cell :content => ""+firstregulatorio.resumen, :background_color => 'eaeaea', :width=>520, height:200, :text_color => "747474", :border_width=>0
+					cell :content => ""+firstregulatorio.resumen, :background_color => 'eaeaea', :width=>520, height:520, :text_color => "747474", :border_width=>0
 					transparent(0.5) {}
 				end
 
@@ -683,7 +697,7 @@ class StakeholderPdf < Prawn::Document
 					font "Times-Roman", :style => :bold
 					text "\nRESUMEN"
 					font "Times-Roman", :style => :normal
-					cell :content => ""+tema.resumen, :background_color => 'eaeaea', :width=>520, height:200, :text_color => "747474", :border_width=>0
+					cell :content => ""+tema.resumen, :background_color => 'eaeaea', :width=>520, height:520, :text_color => "747474", :border_width=>0
 					transparent(0.5) {}
 				end
 
