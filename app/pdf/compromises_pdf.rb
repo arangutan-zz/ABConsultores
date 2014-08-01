@@ -2,75 +2,116 @@ class CompromisesPdf < Prawn::Document
 	def initialize(compromises,current_user)
 	   	super()
 	   	@current_user=current_user
-	   	compromises.each do |compromise|
+	   	imprimir(compromises.first)
+
+	   	compromises.drop(1).each do |compromise|
+	   		start_new_page(:top_margin => 40)
 	   		imprimir(compromise)
 	   	end
-
 
 	   	
 	end
 
 	def imprimir(compromise)
 		displayImage(compromise)
-		bounding_box([0, 550], :width => 550, :height => 70) do
-			font "Times-Roman", :style => :bold
-			font_size 18
-			text "COMPROMISOS", :valign => :center
-			transparent(0.5) { stroke_bounds }
-		end
-		font_size 12
-		font "Times-Roman", :style => :bold
-		text "\nID COMPROMISO: ", :color => "4d4d4d"
-		font "Times-Roman", :style => :normal
-		text compromise.id.to_s+"\n", :color => "4d4d4d"   		
-
-		y_position = cursor
-
-		bounding_box([0, y_position], :width => 200,) do
-			font "Times-Roman", :style => :bold
-			text "\nFECHA: ", :color => "4d4d4d"
-			font "Times-Roman", :style => :normal
-			text compromise.fecha_inicial.to_s+"\n", :color => "4d4d4d"  
-			transparent(0.5) {}
-		end
 		
-		bounding_box([300, y_position], :width => 200) do
-			font "Times-Roman", :style => :bold
-			text "\nFECHA LÍMITE: ", :color => "4d4d4d"
-			font "Times-Roman", :style => :normal
-			text compromise.fecha_limite.to_s+"\n", :color => "4d4d4d"  
-
-			transparent(0.5) {}
-		end
-
-
-
-		bounding_box([0, y_position-50], :width => 200,) do
-			font "Times-Roman", :style => :bold
-			text "\nSTAKEHOLDER: ", :color => "4d4d4d"
-			font "Times-Roman", :style => :normal
-			text compromise.stakeholder.nombre+ "" + compromise.stakeholder.apellido, :color => "4d4d4d"
-			transparent(0.5) {}
-		end
-		
-		bounding_box([300, y_position-50], :width => 200,) do
-			font "Times-Roman", :style => :bold
-			text "\nCORREO: ", :color => "4d4d4d"
-			font "Times-Roman", :style => :normal
-			text compromise.correo+"\n", :color => "4d4d4d"  
-			transparent(0.5) {}
-		end
-
 		font "Times-Roman", :style => :bold
-		text "\nCOMPROMISOS: ", :color => "4d4d4d"
-		font "Times-Roman", :style => :normal
-		text compromise.compromisos+"\n\n", :color => "4d4d4d"  
+		fill_color '747474'
+		fill_rectangle [10, 590], 520, 30
+		font_size 13
+		text_box "<color rgb='ffffff'>COMPROMISOS</color>", :valign => :center, :at=>[20,1145],:inline_format => true
+		y=cursor-40
+		font_size 11
+		bounding_box([10,y], :width =>200) do
+			gap=0
+			bounding_box([0, 0], :width => 200) do
+				font "Times-Roman", :style => :bold
+				text "\nID COMPROMISO: "+compromise.id.to_s
+				transparent(0.5) {}
+			end			
+			transparent(0.5) {}
+		end 		
 
-   		start_new_page(:top_margin => 0)
+		y=cursor
+		bounding_box([10,y], :width =>520) do
+			cell_1 = make_cell(:content => ''+compromise.fecha_inicial.to_s, :align => :justify, :width=>90,  :text_color => "747474", :border_width=>0, :overflow => :truncate, :padding => [10,5,5,0])
+			gap=0
+			bounding_box([0, 0], :width => 90) do
+				font "Times-Roman", :style => :bold
+				text "\nFECHA:"
+				transparent(0.5) {}
+			end			
+			bounding_box([45, bounds.top - gap], :width => 90) do
+				font "Times-Roman", :style => :normal
+				table([[cell_1]])
+				transparent(0.5) {}
+			end			
+
+
+			cell_1 = make_cell(:content => ''+compromise.fecha_limite.to_s, :align => :justify, :width=>90,  :text_color => "747474", :border_width=>0, :overflow => :truncate, :padding => [10,5,5,0])
+			gap=0
+			bounding_box([300, bounds.top - gap], :width => 90) do
+				font "Times-Roman", :style => :bold
+				text "\nFECHA LÍMITE:"
+				transparent(0.5) {}
+			end			
+			bounding_box([390, bounds.top - gap], :width => 90) do
+				font "Times-Roman", :style => :normal
+				table([[cell_1]])
+				transparent(0.5) {}
+			end			
+
+			transparent(0.5) {}
+		end
+
+		y=cursor
+		bounding_box([10,y], :width =>520) do
+			gap=0
+			cell_1 = make_cell(:content => ''+compromise.stakeholder.nombre+ "" + compromise.stakeholder.apellido, :align => :justify, :width=>280, :height=>20, :text_color => "747474", :border_width=>0, :overflow => :truncate, :padding => [0,5,5,0])
+			bounding_box([0,gap], :width =>280) do
+				bounding_box([0, 0], :width => 280) do
+					font "Times-Roman", :style => :bold
+					text "\nSTAKEHOLDER:"
+					font "Times-Roman", :style => :normal
+					table([[cell_1]])
+					transparent(0.5) {}
+				end	
+				transparent(0.5) {}
+			end
+
+			cell_1 = make_cell(:content => ''+compromise.correo, :align => :justify, :width=>170,  :text_color => "747474", :border_width=>0, :overflow => :truncate, :padding => [0,5,5,0])
+			bounding_box([300,bounds.top - gap], :width =>170) do
+				bounding_box([0, 0], :width => 170) do
+					font "Times-Roman", :style => :bold
+					text "\nCORREO:"
+					font "Times-Roman", :style => :normal
+					table([[cell_1]])
+					transparent(0.5) {}
+				end			
+				transparent(0.5) {}
+			end
+
+			transparent(0.5) {}
+		end
+
+		y=cursor
+		cell_1 = make_cell(:content => ''+compromise.compromisos, :align => :justify, :width=>520,  :text_color => "747474", :border_width=>0, :overflow => :truncate, :padding => [0,5,5,0])
+		bounding_box([10,y], :width =>520) do
+			bounding_box([0, 0], :width => 520) do
+				font "Times-Roman", :style => :bold
+				text "\nCOMPROMISOS:"
+				font "Times-Roman", :style => :normal
+				table([[cell_1]])
+				transparent(0.5) {}
+			end			
+			transparent(0.5) {}
+		end
+
 	end
 
 	def displayImage(compromise)
-		image Rails.root.to_s+"/public"+ @current_user.empresa.imagen_url, :height => 150, :position => :center, :vposition => :top
+		image Rails.root.to_s+"/public"+ @current_user.empresa.imagen_url, :height => 120, :width => 520 ,:position => :center, :vposition=> 0
 	end
+
 
 end

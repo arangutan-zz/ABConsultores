@@ -10,157 +10,212 @@ class EmpresaPdf < Prawn::Document
    		#end
 	end
 
-	def imprimir(empresa)
-		
+		def imprimir(empresa)
 		displayImage(empresa)
-		# bounding_box([0, 550], :width => 550, :height => 70) do
-		# 	font "Times-Roman", :style => :bold
-		# 	font_size 18
-		# 	text "EMPRESAS", :valign => :center
-		# 	transparent(0.5) { stroke_bounds }
-		# end
 
-		bounding_box([0, cursor-20], :width => 150, :height => 150) do
+		font "Times-Roman", :style => :bold
+		fill_color '747474'
+		fill_rectangle [10, 590], 520, 30
+		font_size 13
+		text_box "<color rgb='ffffff'>"+empresa.nombre_comercial.upcase+"</color>", :valign => :center, :at=>[20,1145],:inline_format => true
+		font_size 9.5
+		y=cursor-50
+		bounding_box([10, y], :width => 150, :height => 150) do
 			if empresa.imagen_url
 				image Rails.root.to_s+"/public"+ empresa.imagen_url, :width=>150, :height => 150, :position => :left
-			else
-				text "sin imagen", :align => :center, :valign => :center
 			end
-			transparent(0.5) { stroke_bounds }
+			transparent(0.5) {}
+		end
+
+		cell_1 = make_cell(:content => ''+empresa.nombre_comercial.upcase, :background_color => 'eaeaea', :align => :justify, :width=>120,  :text_color => "747474", :border_width=>0, :overflow => :truncate)
+		bounding_box([170,y], :width =>120) do
+			bounding_box([0, 0], :width => 120) do
+				font "Times-Roman", :style => :bold
+				text "\nNOMBRE COMERCIAL"
+				font "Times-Roman", :style => :normal
+				table([[cell_1]])
+				transparent(0.5) {}
+			end			
+			transparent(0.5) {}
+		end
+
+		cell_1 = make_cell(:content => ''+empresa.nit.upcase, :background_color => 'eaeaea', :align => :justify, :width=>115,  :text_color => "747474", :border_width=>0, :overflow => :truncate)
+		bounding_box([295,y], :width =>115) do
+			bounding_box([0, 0], :width => 115) do
+				font "Times-Roman", :style => :bold
+				text "\nNIT"
+				font "Times-Roman", :style => :normal
+				table([[cell_1]])
+				transparent(0.5) {}
+			end			
+			transparent(0.5) {}
+		end
+
+		cell_1 = make_cell(:content => ''+empresa.razon_social.upcase, :background_color => 'eaeaea', :align => :justify, :width=>115,  :text_color => "747474", :border_width=>0, :overflow => :truncate)
+		bounding_box([415,y], :width =>115) do
+			bounding_box([0, 0], :width => 115) do
+				font "Times-Roman", :style => :bold
+				text "\nRAZÓN SOCIAL"
+				font "Times-Roman", :style => :normal
+				table([[cell_1]])
+				transparent(0.5) {}
+			end			
+			transparent(0.5) {}
+		end
+
+		#SECOND ROW------------------------------------------------------------------------------------------------------
+
+		y=cursor
+		cell_1 = make_cell(:content => ''+empresa.representante_legal.upcase, :background_color => 'eaeaea', :align => :justify, :width=>120,  :text_color => "747474", :border_width=>0, :overflow => :truncate)
+		bounding_box([170,y], :width =>120) do
+			bounding_box([0, 0], :width => 120) do
+				font "Times-Roman", :style => :bold
+				text "\nREPRESENTANTE LEGAL"
+				font "Times-Roman", :style => :normal
+				table([[cell_1]])
+				transparent(0.5) {}
+			end			
+			transparent(0.5) {}
+		end
+
+		cell_1 = make_cell(:content => ''+empresa.nombre_contacto.upcase, :background_color => 'eaeaea', :align => :justify, :width=>115,  :text_color => "747474", :border_width=>0, :overflow => :truncate)
+		bounding_box([295,y], :width =>115) do
+			bounding_box([0, 0], :width => 115) do
+				font "Times-Roman", :style => :bold
+				text "\nNOMBRE DE CONTACTO"
+				font "Times-Roman", :style => :normal
+				table([[cell_1]])
+				transparent(0.5) {}
+			end			
+			transparent(0.5) {}
+		end
+
+		cell_1 = make_cell(:content => ''+empresa.email_contacto.upcase, :background_color => 'eaeaea', :align => :justify, :width=>115,  :text_color => "747474", :border_width=>0, :overflow => :truncate)
+		bounding_box([415,y], :width =>115) do
+			bounding_box([0, 0], :width => 115) do
+				font "Times-Roman", :style => :bold
+				text "\nE-MAIL DE CONTACTO"
+				font "Times-Roman", :style => :normal
+				table([[cell_1]])
+				transparent(0.5) {}
+			end			
+			transparent(0.5) {}
+		end
+
+		#THIRD ROW------------------------------------------------------------------------------------------------------
+
+		y=cursor
+		cell_1 = make_cell(:content => ''+empresa.telefono_contacto.upcase, :background_color => 'eaeaea', :align => :justify, :width=>120,  :text_color => "747474", :border_width=>0, :overflow => :truncate)
+		bounding_box([170,y], :width =>120) do
+			bounding_box([0, 0], :width => 120) do
+				font "Times-Roman", :style => :bold
+				text "\nTELÉFONO CONTACTO"
+				font "Times-Roman", :style => :normal
+				table([[cell_1]])
+				transparent(0.5) {}
+			end			
+			transparent(0.5) {}
+		end
+
+		cell_1 = make_cell(:content => ''+empresa.direccion_contacto.upcase, :background_color => 'eaeaea', :align => :justify, :width=>115,  :text_color => "747474", :border_width=>0, :overflow => :truncate)
+		bounding_box([295,y], :width =>115) do
+			bounding_box([0, 0], :width => 115) do
+				font "Times-Roman", :style => :bold
+				text "\nDIRECCIÓN CONTACTO"
+				font "Times-Roman", :style => :normal
+				table([[cell_1]])
+				transparent(0.5) {}
+			end			
+			transparent(0.5) {}
+		end
+
+		cell_1 = make_cell(:content => ''+empresa.ciudad.upcase, :background_color => 'eaeaea', :align => :justify, :width=>115,  :text_color => "747474", :border_width=>0, :overflow => :truncate)
+		bounding_box([415,y], :width =>115) do
+			bounding_box([0, 0], :width => 115) do
+				font "Times-Roman", :style => :bold
+				text "\nCIUDAD"
+				font "Times-Roman", :style => :normal
+				table([[cell_1]])
+				transparent(0.5) {}
+			end			
+			transparent(0.5) {}
+		end
+
+
+		#FOURTH ROW------------------------------------------------------------------------------------------------------
+
+		y=cursor
+		cell_1 = make_cell(:content => ''+empresa.pais.upcase, :background_color => 'eaeaea', :align => :justify, :width=>120,  :text_color => "747474", :border_width=>0, :overflow => :truncate)
+		bounding_box([170,y], :width =>120) do
+			bounding_box([0, 0], :width => 120) do
+				font "Times-Roman", :style => :bold
+				text "\nPAÍS"
+				font "Times-Roman", :style => :normal
+				table([[cell_1]])
+				transparent(0.5) {}
+			end			
+			transparent(0.5) {}
+		end
+
+		cell_1 = make_cell(:content => ''+empresa.pagina_web.upcase, :background_color => 'eaeaea', :align => :justify, :width=>115,  :text_color => "747474", :border_width=>0, :overflow => :truncate)
+		bounding_box([295,y], :width =>115) do
+			bounding_box([0, 0], :width => 115) do
+				font "Times-Roman", :style => :bold
+				text "\nPÁGINA WEB"
+				font "Times-Roman", :style => :normal
+				table([[cell_1]])
+				transparent(0.5) {}
+			end			
+			transparent(0.5) {}
+		end
+
+		#FIFTH ROW------------------------------------------------------------------------------------------------------
+
+		y=cursor
+		cell_1 = make_cell(:content => ''+empresa.created_at.to_s.upcase, :background_color => 'eaeaea', :align => :justify, :width=>120,  :text_color => "747474", :border_width=>0, :overflow => :truncate)
+		bounding_box([170,y], :width =>120) do
+			bounding_box([0, 0], :width => 120) do
+				font "Times-Roman", :style => :bold
+				text "\nFECHA DE CREACIÓN"
+				font "Times-Roman", :style => :normal
+				table([[cell_1]])
+				transparent(0.5) {}
+			end			
+			transparent(0.5) {}
+		end
+
+		cell_1 = make_cell(:content => ''+empresa.fecha_vencimiento.to_s.upcase, :background_color => 'eaeaea', :align => :justify, :width=>115,  :text_color => "747474", :border_width=>0, :overflow => :truncate)
+		bounding_box([295,y], :width =>115) do
+			bounding_box([0, 0], :width => 115) do
+				font "Times-Roman", :style => :bold
+				text "\nFECHA DE EXPIRACIÓN"
+				font "Times-Roman", :style => :normal
+				table([[cell_1]])
+				transparent(0.5) {}
+			end			
+			transparent(0.5) {}
 		end
 		
-		font_size 9.5
-		bounding_box([160, cursor+160], :width => 120) do
-			font "Times-Roman", :style => :bold
-			text "\nNOMBRE COMERCIAL: ", :color => "4d4d4d"
-			font "Times-Roman", :style => :normal
-			text empresa.nombre_comercial+"\n", :color => "4d4d4d" 
-			transparent(0.5) {}
-		end
-
-		bounding_box([290, cursor+33], :width => 120) do
-			font "Times-Roman", :style => :bold
-		text "\nNIT: ", :color => "4d4d4d"
-		font "Times-Roman", :style => :normal
-		text empresa.nit+"\n", :color => "4d4d4d"   	
-			transparent(0.5) {}
-		end
-
-		bounding_box([420, cursor+33], :width => 120) do
-			font "Times-Roman", :style => :bold
-		text "\nRAZÓN SOCIAL: ", :color => "4d4d4d"
-		font "Times-Roman", :style => :normal
-		text empresa.razon_social+"\n", :color => "4d4d4d"   	
-			transparent(0.5) { }
-		end
-
-		#Second row
-
-		bounding_box([160, cursor-10], :width => 130) do
-			font "Times-Roman", :style => :bold
-		text "\nREPRESENTANTE LEGAL: ", :color => "4d4d4d"
-		font "Times-Roman", :style => :normal
-		text empresa.representante_legal+"\n", :color => "4d4d4d"
-			transparent(0.5) {}
-		end
-
-		bounding_box([290, cursor+33], :width => 120) do
-			font "Times-Roman", :style => :bold
-		text "\nNOMBRE CONTACTO: ", :color => "4d4d4d"
-		font "Times-Roman", :style => :normal
-		text empresa.nombre_contacto+"\n", :color => "4d4d4d" 	
-			transparent(0.5) {}
-		end
-
-		bounding_box([420, cursor+33], :width => 120) do
-				font "Times-Roman", :style => :bold
-		text "\nE-MAIL CONTACTO: ", :color => "4d4d4d"
-		font "Times-Roman", :style => :normal
-		text empresa.email_contacto+"\n", :color => "4d4d4d"
-			transparent(0.5) {}
-		end
-
-		#Third Row
-
-
-		bounding_box([160, cursor-10], :width => 130) do
-			font "Times-Roman", :style => :bold
-		text "\nTELÉFONO CONTACTO: ", :color => "4d4d4d"
-		font "Times-Roman", :style => :normal
-		text empresa.telefono_contacto+"\n", :color => "4d4d4d" 	
-			transparent(0.5) {}
-		end
-
-		bounding_box([290, cursor+33], :width => 120) do
-			font "Times-Roman", :style => :bold
-		text "\nDIRECCIÓN  CONTACTO: ", :color => "4d4d4d"
-		font "Times-Roman", :style => :normal
-		text empresa.direccion_contacto+"\n", :color => "4d4d4d"
-
-			transparent(0.5) {}
-		end
-
-		bounding_box([420, cursor+33], :width => 120) do
-			font "Times-Roman", :style => :bold
-		text "\nCIUDAD: ", :color => "4d4d4d"
-		font "Times-Roman", :style => :normal
-		text empresa.ciudad+"\n", :color => "4d4d4d"
-			transparent(0.5) {}
-		end
-
-		#Fourth row
-
-		bounding_box([160, cursor-10], :width => 130) do
-			font "Times-Roman", :style => :bold
-		text "\nPAÍS: ", :color => "4d4d4d"
-		font "Times-Roman", :style => :normal
-		text empresa.pais+"\n", :color => "4d4d4d"
-		end
-
-		bounding_box([290, cursor+33], :width => 120) do
-			font "Times-Roman", :style => :bold
-		text "\nPÁGINA WEB: ", :color => "4d4d4d"
-		font "Times-Roman", :style => :normal
-		text empresa.pagina_web+"\n", :color => "4d4d4d"
-			transparent(0.5) {}
-		end
-
-		#Fifth row
-
-		bounding_box([160, cursor-10], :width => 130) do
-			font "Times-Roman", :style => :bold
-		text "\nFECHA DE CREACIÓN: ", :color => "4d4d4d"
-		font "Times-Roman", :style => :normal
-		text empresa.created_at.to_s+"\n", :color => "4d4d4d"
-			transparent(0.5) {}
-		end
-
-		bounding_box([290, cursor+33], :width => 120) do
-			font "Times-Roman", :style => :bold
-		text "\nFECHA DE EXPIRACIÓN: ", :color => "4d4d4d"
-		font "Times-Roman", :style => :normal
-		text empresa.fecha_vencimiento.to_s+"\n", :color => "4d4d4d"
-
-			transparent(0.5) {}
-		end
-
-		bounding_box([420, cursor+33], :width => 120) do
-			font "Times-Roman", :style => :bold
-		text "\nHABILITADO: ", :color => "4d4d4d"
-		font "Times-Roman", :style => :normal
 		if empresa.habilidato 
-			text "Sí",:color => "4d4d4d"
+			habilitado ="Sí"
 		else  
-			text "No",:color => "4d4d4d"
+		 	habilitado = "No"
 		end
+		cell_1 = make_cell(:content => ''+habilitado, :background_color => 'eaeaea', :align => :justify, :width=>115,  :text_color => "747474", :border_width=>0, :overflow => :truncate)
+		bounding_box([415,y], :width =>115) do
+			bounding_box([0, 0], :width => 115) do
+				font "Times-Roman", :style => :bold
+				text "\nHABILITADO"
+				font "Times-Roman", :style => :normal
+				table([[cell_1]])
+				transparent(0.5) {}
+			end			
 			transparent(0.5) {}
 		end
-
-		#image Rails.root.to_s+"/public"+ empresa.imagen_url, :width=>150, :height => 150, :position => :center, :vposition => :top
 	end
 
 	def displayImage(empresa)
-		image Rails.root.to_s+"/public"+ @current_user.empresa.imagen_url, :height => 150, :position => :center, :vposition => :top
+		image Rails.root.to_s+"/public"+ @current_user.empresa.imagen_url, :height => 120, :width => 520 ,:position => :center, :vposition=> 0
 	end
 
 end

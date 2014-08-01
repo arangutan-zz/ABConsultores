@@ -9,99 +9,168 @@ class UsuarioPdf < Prawn::Document
 
 	def imprimir(usuario)
 		displayImage(usuario)
+		font "Times-Roman", :style => :bold
+		fill_color '747474'
+		fill_rectangle [10, 590], 520, 30
+		font_size 13
+		text_box "<color rgb='ffffff'>"+usuario.nombre.upcase+" "+usuario.apellido.upcase+"</color>", :valign => :center, :at=>[20,1145],:inline_format => true
 
-		bounding_box([0, cursor], :width => 120) do
-			font "Times-Roman", :style => :bold
-			text "\nID USUARIO: ", :color => "4d4d4d"
-			font "Times-Roman", :style => :normal
-			text usuario.id.to_s+"\n", :color => "4d4d4d" 
+		y=cursor-40
+		font_size 9.5
+		bounding_box([10,y], :width =>520) do
+			gap=0
+			cell_1 = make_cell(:content => ''+usuario.id.to_s, :background_color => 'eaeaea', :align => :justify, :width=>170, :height=>20, :text_color => "747474", :border_width=>0, :overflow => :truncate)
+			bounding_box([0,gap], :width =>170) do
+				bounding_box([0, 0], :width => 170) do
+					font "Times-Roman", :style => :bold
+					text "\nID USUARIO"
+					font "Times-Roman", :style => :normal
+					table([[cell_1]])
+					transparent(0.5) {}
+				end	
+				transparent(0.5) {}
+			end
+
+			cell_1 = make_cell(:content => ''+usuario.username.upcase, :background_color => 'eaeaea', :align => :justify, :width=>170,  :text_color => "747474", :border_width=>0, :overflow => :truncate)
+			bounding_box([175,bounds.top - gap], :width =>170) do
+				bounding_box([0, 0], :width => 170) do
+					font "Times-Roman", :style => :bold
+					text "\nUSERNAME"
+					font "Times-Roman", :style => :normal
+					table([[cell_1]])
+					transparent(0.5) {}
+				end			
+				transparent(0.5) {}
+			end
+
+			cell_1 = make_cell(:content => ''+usuario.nombre.upcase, :background_color => 'eaeaea', :align => :justify, :width=>170,  :text_color => "747474", :border_width=>0, :overflow => :truncate)
+			bounding_box([350,bounds.top - gap], :width =>170) do
+				bounding_box([0, 0], :width => 170) do
+					font "Times-Roman", :style => :bold
+					text "\nNOMBRE"
+					font "Times-Roman", :style => :normal
+					table([[cell_1]])
+					transparent(0.5) {}
+				end			
+				transparent(0.5) {}
+			end
 			transparent(0.5) {}
 		end
 
-		bounding_box([200, cursor+41], :width => 120) do
-			font "Times-Roman", :style => :bold
-			text "\nUSERNAME: ", :color => "4d4d4d"
-			font "Times-Roman", :style => :normal
-			text usuario.username+"\n", :color => "4d4d4d"   	
+		#Second row-------------------------------------------------------------------------------------------------
+		
+		y= cursor-10
+
+		bounding_box([10,y], :width =>520) do
+			gap=0
+			cell_1 = make_cell(:content => ''+usuario.apellido.upcase, :background_color => 'eaeaea', :align => :justify, :width=>170, :height=>20, :text_color => "747474", :border_width=>0, :overflow => :truncate)
+			bounding_box([0,gap], :width =>170) do
+				bounding_box([0, 0], :width => 170) do
+					font "Times-Roman", :style => :bold
+					text "\nAPELLIDO"
+					font "Times-Roman", :style => :normal
+					table([[cell_1]])
+					transparent(0.5) {}
+				end	
+				transparent(0.5) {}
+			end
+
+			cell_1 = make_cell(:content => ''+usuario.email.upcase, :background_color => 'eaeaea', :align => :justify, :width=>170,  :text_color => "747474", :border_width=>0, :overflow => :truncate)
+			bounding_box([175,bounds.top - gap], :width =>170) do
+				bounding_box([0, 0], :width => 170) do
+					font "Times-Roman", :style => :bold
+					text "\nCORREO"
+					font "Times-Roman", :style => :normal
+					table([[cell_1]])
+					transparent(0.5) {}
+				end			
+				transparent(0.5) {}
+			end
+
+			cell_1 = make_cell(:content => ''+usuario.telefono.to_s, :background_color => 'eaeaea', :align => :justify, :width=>170,  :text_color => "747474", :border_width=>0, :overflow => :truncate)
+			bounding_box([350,bounds.top - gap], :width =>170) do
+				bounding_box([0, 0], :width => 170) do
+					font "Times-Roman", :style => :bold
+					text "\nTELÉFONO"
+					font "Times-Roman", :style => :normal
+					table([[cell_1]])
+					transparent(0.5) {}
+				end			
+				transparent(0.5) {}
+			end
 			transparent(0.5) {}
 		end
 
-		bounding_box([400, cursor+41], :width => 120) do
-			font "Times-Roman", :style => :bold
-			text "\nNOMBRE: ", :color => "4d4d4d"
-			font "Times-Roman", :style => :normal
-			text usuario.nombre+"\n", :color => "4d4d4d"   	
+		# #Third row-------------------------------------------------------------------------------------------------
+		
+		y= cursor-20
+
+		bounding_box([10,y], :width =>520) do
+			gap=0
+			cell_1 = make_cell(:content => ''+usuario.cargo.upcase, :background_color => 'eaeaea', :align => :justify, :width=>170, :height=>20, :text_color => "747474", :border_width=>0, :overflow => :truncate)
+			bounding_box([0,gap], :width =>170) do
+				bounding_box([0, 0], :width => 170) do
+					font "Times-Roman", :style => :bold
+					text "\nCARGO"
+					font "Times-Roman", :style => :normal
+					table([[cell_1]])
+					transparent(0.5) {}
+				end	
+				transparent(0.5) {}
+			end
+
+			cell_1 = make_cell(:content => ''+usuario.empresa.nombre_comercial.upcase, :background_color => 'eaeaea', :align => :justify, :width=>170,  :text_color => "747474", :border_width=>0, :overflow => :truncate)
+			bounding_box([175,bounds.top - gap], :width =>170) do
+				bounding_box([0, 0], :width => 170) do
+					font "Times-Roman", :style => :bold
+					text "\nEMPRESA"
+					font "Times-Roman", :style => :normal
+					table([[cell_1]])
+					transparent(0.5) {}
+				end			
+				transparent(0.5) {}
+			end
+
+			cell_1 = make_cell(:content => ''+usuario.rol.to_s.upcase, :background_color => 'eaeaea', :align => :justify, :width=>170,  :text_color => "747474", :border_width=>0, :overflow => :truncate)
+			bounding_box([350,bounds.top - gap], :width =>170) do
+				bounding_box([0, 0], :width => 170) do
+					font "Times-Roman", :style => :bold
+					text "\nROL"
+					font "Times-Roman", :style => :normal
+					table([[cell_1]])
+					transparent(0.5) {}
+				end			
+				transparent(0.5) {}
+			end
 			transparent(0.5) {}
 		end
 
-		#Second row
 
-		bounding_box([0, cursor], :width => 120) do
-			font "Times-Roman", :style => :bold
-			text "\nAPELLIDO: ", :color => "4d4d4d"
-			font "Times-Roman", :style => :normal
-			text usuario.apellido+"\n", :color => "4d4d4d"
-			transparent(0.5) {}
-		end
+		#Fourth row-------------------------------------------------------------------------------------------------
+		
+		y= cursor-10
 
-		bounding_box([200, cursor+41], :width => 120) do
-			font "Times-Roman", :style => :bold
-			text "\nCORREO: ", :color => "4d4d4d"
-			font "Times-Roman", :style => :normal
-			text usuario.email+"\n", :color => "4d4d4d" 	
-			transparent(0.5) {}
-		end
-
-		bounding_box([400, cursor+41], :width => 120) do
-				font "Times-Roman", :style => :bold
-			text "\nTELÉFONO: ", :color => "4d4d4d"
-			font "Times-Roman", :style => :normal
-			text usuario.telefono+"\n", :color => "4d4d4d"
-			transparent(0.5) {}
-		end
-
-		# #Third Row
-
-		bounding_box([0, cursor], :width => 120) do
-			font "Times-Roman", :style => :bold
-			text "\nCARGO: ", :color => "4d4d4d"
-			font "Times-Roman", :style => :normal
-			text usuario.cargo+"\n", :color => "4d4d4d" 	
-			transparent(0.5) {}
-		end
-
-		bounding_box([200, cursor+41], :width => 120) do
-			font "Times-Roman", :style => :bold
-			text "\nEMPRESA: ", :color => "4d4d4d"
-			font "Times-Roman", :style => :normal
-			text usuario.empresa.nombre_comercial+"\n", :color => "4d4d4d"
+		bounding_box([10,y], :width =>520) do
+			gap=0
+			cell_1 = make_cell(:content => ''+ usuario.last_sign_in_at.to_s, :background_color => 'eaeaea', :align => :justify, :width=>170, :height=>20, :text_color => "747474", :border_width=>0, :overflow => :truncate)
+			bounding_box([0,gap], :width =>170) do
+				bounding_box([0, 0], :width => 170) do
+					font "Times-Roman", :style => :bold
+					text "\nULTIMO ACCESO"
+					font "Times-Roman", :style => :normal
+					table([[cell_1]])
+					transparent(0.5) {}
+				end	
+				transparent(0.5) {}
+			end
 
 			transparent(0.5) {}
 		end
 
-		bounding_box([400, cursor+41], :width => 120) do
-			font "Times-Roman", :style => :bold
-			text "\nROL: ", :color => "4d4d4d"
-			font "Times-Roman", :style => :normal
-			text usuario.rol+"\n", :color => "4d4d4d"
-			transparent(0.5) {}
-		end
-   		
-		#Fourth Row
-
-		bounding_box([0, cursor], :width => 140) do
-			font "Times-Roman", :style => :bold
-			text "\nÚLTIMO ACCESO: ", :color => "4d4d4d"
-			font "Times-Roman", :style => :normal
-			text usuario.last_sign_in_at.to_s+"\n", :color => "4d4d4d" 	
-			transparent(0.5) {}
-		end
-
-   		start_new_page(:top_margin => 0)
 	end
 
 	def displayImage(usuario)
-		image Rails.root.to_s+"/public"+ @current_user.empresa.imagen_url, :height => 150, :position => :center, :vposition => :top
+		image Rails.root.to_s+"/public"+ @current_user.empresa.imagen_url, :height => 120, :width => 520 ,:position => :center, :vposition=> 0
 	end
 
 end
